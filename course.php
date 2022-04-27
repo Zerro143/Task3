@@ -1,16 +1,7 @@
 <?php  
 session_start();
 include 'conn.php';
-//$course="";
-//if (isset($_GET['edit'])){
-//  $id = $_GET['edit'];
-//  $_SESSION['update']=true;
-//  $sql = "SELECT * FROM course WHERE course_id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn)); 
-//  $result = $conn->query($sql);  
-//  $row = $result->fetch_array();
-//  //$_SESSION['course']=$row['course'];
-//  $course=$row['course'];    
-//}
+
 $id="";
 mysqli_query($conn, $sql);
 ?>
