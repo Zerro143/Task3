@@ -40,6 +40,8 @@ mysqli_query($conn, $sql);
   
 
 </style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 <script>
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -48,6 +50,8 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+
 </script>
 
 <html>
@@ -107,11 +111,11 @@ function closeForm() {
           <?php //<a class="btn btn-primary" onclick="openForm()">Add</a>?>
           <div style="padding-left:20px">
             <div class="form" id="myForm">
-              <form action="upcr.php" class="form-container" method="POSt">
+              <form  class="form-container" method="POSt">
                 <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
                 <div class="row">
                   <label for="course"><b>Couse Name</b></label>
-                  <input type="text" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
+                  <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
                 </div>
                 <?php
                   if($_SESSION['crupdate']==true):
@@ -119,15 +123,32 @@ function closeForm() {
                   <button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button>
                 <?php unset($_SESSION['crupdate']); ?>  
                 <?php else:?>
-                  <button type="submit" class="btn btn-primary" placeholder="ADD" name="add">Add</button>
+                  <input type="button" id="Add" class="btn btn-primary" placeholder="ADD" name="add" value="Add"/>
                 <?php endif;?>  
                 <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
               </form>
+             
             </div>
           </div>
         </div>
       </div>
           
     </div>
+    <script>
+      $('#Add').click(function () { 
+      
+                      
+      $course = $('#course').val(); 
+                      
+        $.ajax({url:"icr.php", 
+        method:"POST", 
+        data:{course:$course}, 
+        success:function(dataabc){ 
+          window.location.href="course.php"; 
+        }}); 
+          
+          
+      }); 
+   </script>
   </body>
 </html>
