@@ -14,9 +14,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url: "upcr.php",
-            data: {
-                course: course,
-                
+            data: {course: course          
             },
             cache: false,
             success: function(data) {
