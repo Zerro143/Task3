@@ -1,16 +1,7 @@
 <?php  
 session_start();
 include 'conn.php';
-//$course="";
-//if (isset($_GET['edit'])){
-//  $id = $_GET['edit'];
-//  $_SESSION['update']=true;
-//  $sql = "SELECT * FROM course WHERE course_id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn)); 
-//  $result = $conn->query($sql);  
-//  $row = $result->fetch_array();
-//  //$_SESSION['course']=$row['course'];
-//  $course=$row['course'];    
-//}
+
 $id="";
 mysqli_query($conn, $sql);
 ?>
@@ -49,21 +40,29 @@ mysqli_query($conn, $sql);
   
 
 </style>
-<script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-</script>
 
 <html>
     <head>
         <title>Student Grid</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="assets/js/jquery.js"></script>
+        <script>
+          $(document).ready(function(){
+            $("#myForm").hide()
+            $("#open_form").click(function(){
+              $("#myForm").show();
+            });
+            $("#closeForm").click(function(){
+              $("#myForm").hide();
+            });
+            $("#edit").click(function(){
+              $("#myForm").show();
+            });
+          });
+
+        </script>
     </head>
 
   <body>
@@ -76,6 +75,7 @@ function closeForm() {
                 
       <button class="btn-xs btn-primary" onclick="window.open('record.php','popup','width=600,height=600'); return false;">Create Student Record</button>
       <button class="btn-xs btn-primary" onclick="location.href='students.php'">Show All Students Record</button>
+      <button class="btn-xs btn-primary" id="open_form">Add</button>
       <?php /*
       <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course</button>*/?>
     </div> 
@@ -100,7 +100,7 @@ function closeForm() {
                   <td><?php echo $row['course_id'];?></td>
                   <td><?php echo $row['course'];?></td>
                   <td>  
-                    <a href="upcr.php?edit=<?php echo $row['course_id'];?>"class="btn btn-info">Edit</a>
+                    <a id="edit" href="upcr.php?edit=<?php echo $row['course_id'];?>"class="btn btn-info">Edit</a>
                     <a href="upcr.php?delete=<?php echo $row['course_id'];?>"class="btn btn-danger">Delete</a>
                   </td>
               
@@ -113,10 +113,10 @@ function closeForm() {
       </div>
       <div class="row">
         <div class="col-4">
-          <?php //<a class="btn btn-primary" onclick="openForm()">Add</a>?>
+        
           <div style="padding-left:20px">
             <div class="form" id="myForm">
-              <form action="upcr.php" class="form-container" method="POSt">
+              <form action="upcr.php" class="form-container" method="POST">
                 <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
                 <div class="row">
                   <label for="course"><b>Couse Name</b></label>
@@ -130,7 +130,7 @@ function closeForm() {
                 <?php else:?>
                   <button type="submit" class="btn btn-primary" placeholder="ADD" name="add">Add</button>
                 <?php endif;?>  
-                <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
+                <button type="button" class="btn btn-primary" id="closeForm">Close</button>
               </form>
             </div>
           </div>

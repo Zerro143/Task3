@@ -7,11 +7,16 @@ $_SESSION['crupdate']=false;
 #$_SESSION['message']="";
 #$_SESSION['msg_type']="";
 
+$add = $_POST['a'];
+$a = json_decode($add);
+echo $a;
+
 if (isset($_POST['add'])) {
     
-    $course = $_POST['course'];
+    $course = $_POST['b'];
     $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    mysqli_query($conn, $sql);
+    echo $sql;
+    //mysqli_query($conn, $sql);
     
     $_SESSION['message'] = "Course has been Added";
     $_SESSION['msg_type'] = "Success";
@@ -45,19 +50,7 @@ if (isset($_GET['edit'])){
      
    
 }
-#if (isset($_GET['edit'])){
-#    $id = $_GET['edit'];
-#    $update=true;
-#    $sql = "SELECT * FROM course WHERE course_id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn)); 
-#    $result = $conn->query($sql);  
-#    $row = $result->fetch_array();
-#    $course_id=$row['course_id'];
-#    $course=$row['course'];
-#    header("location:course.php"); 
-#    
-#     
-#   
-#}
+
 if (isset($_POST['update'])) {
     
     $id = $_POST['id'];
@@ -65,11 +58,12 @@ if (isset($_POST['update'])) {
     //echo $id;
     //echo $course;
     $sql = "UPDATE course SET course = '$course' WHERE course_id = $id";// or die("ERROR: Data not stored in database.".mysqli_error($conn));
-    mysqli_query($conn, $sql);
+    echo $sql;  
+    //mysqli_query($conn, $sql);
     //echo $sql;   
     $_SESSION['message'] = "Course has been Edited";
     $_SESSION['msg_type'] = "Success";
-    header("location:course.php"); 
+    //header("location:course.php"); 
   
     
     
