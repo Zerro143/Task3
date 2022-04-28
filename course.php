@@ -1,7 +1,16 @@
 <?php  
 session_start();
 include 'conn.php';
-
+//$course="";
+//if (isset($_GET['edit'])){
+//  $id = $_GET['edit'];
+//  $_SESSION['update']=true;
+//  $sql = "SELECT * FROM course WHERE course_id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn)); 
+//  $result = $conn->query($sql);  
+//  $row = $result->fetch_array();
+//  //$_SESSION['course']=$row['course'];
+//  $course=$row['course'];    
+//}
 $id="";
 mysqli_query($conn, $sql);
 ?>
@@ -40,8 +49,6 @@ mysqli_query($conn, $sql);
   
 
 </style>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 <script>
 function openForm() {
   document.getElementById("myForm").style.display = "block";
@@ -50,8 +57,6 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
-
-
 </script>
 
 <html>
@@ -111,11 +116,11 @@ function closeForm() {
           <?php //<a class="btn btn-primary" onclick="openForm()">Add</a>?>
           <div style="padding-left:20px">
             <div class="form" id="myForm">
-              <form  class="form-container" method="POSt">
+              <form action="upcr.php" class="form-container" method="POSt">
                 <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
                 <div class="row">
                   <label for="course"><b>Couse Name</b></label>
-                  <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
+                  <input type="text" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
                 </div>
                 <?php
                   if($_SESSION['crupdate']==true):
@@ -123,32 +128,15 @@ function closeForm() {
                   <button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button>
                 <?php unset($_SESSION['crupdate']); ?>  
                 <?php else:?>
-                  <input type="button" id="Add" class="btn btn-primary" placeholder="ADD" name="add" value="Add"/>
+                  <button type="submit" class="btn btn-primary" placeholder="ADD" name="add">Add</button>
                 <?php endif;?>  
                 <button type="button" class="btn btn-primary" onclick="closeForm()">Close</button>
               </form>
-             
             </div>
           </div>
         </div>
       </div>
           
     </div>
-    <script>
-      $('#Add').click(function () { 
-      
-                      
-      $course = $('#course').val(); 
-                      
-        $.ajax({url:"icr.php", 
-        method:"POST", 
-        data:{course:$course}, 
-        success:function(dataabc){ 
-          window.location.href="course.php"; 
-        }}); 
-          
-          
-      }); 
-   </script>
   </body>
 </html>
