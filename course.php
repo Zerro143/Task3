@@ -44,7 +44,7 @@ mysqli_query($conn, $sql);
 
 <html>
     <head>
-        <title>Student Grid</title>
+        <title>Course Grid</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
         <script src="assets/js/jquery.js"></script>
@@ -99,9 +99,34 @@ mysqli_query($conn, $sql);
 
                 
       </div>
-      <section id="myForm">
-        <?php include 'addcr.php';?>
-      </section>
+    <section id = "course_form" class="container mt-5">
+      <div class="row">
+          <div class="col-4">
+        
+            <div style="padding-left:20px">
+              <div class="form" id="myForm">
+                <form class="form-container" id="courseform">
+                  <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
+                  <div class="row">
+                    <label for="course"><b>Couse Name</b></label>
+                    <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
+                    <span id="crerr"></span>
+                  </div>
+                  <?php
+                    if($_SESSION['crupdate']==true):
+                  ?>
+                    <button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button>
+                  <?php unset($_SESSION['crupdate']); ?>  
+                  <?php else:?>
+                    <button type="submit" id="add" class="btn btn-primary add" placeholder="ADD" name="add" value="add">Add</button>
+                  <?php endif;?>  
+                  <button type="button" class="btn btn-primary" id="closeForm">Close</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
           
     </div>
 

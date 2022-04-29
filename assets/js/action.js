@@ -26,7 +26,7 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:add,b:course}, 
             success:function(dataabc){ 
-                //alert(course + " Added to Database");
+                alert(course + " Added to Database");
                 
             }});
         }else{
