@@ -112,14 +112,10 @@ mysqli_query($conn, $sql);
                     <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
                     <span id="crerr"></span>
                   </div>
-                  <?php
-                    if($_SESSION['crupdate']==true):
-                  ?>
-                    <button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button>
-                  <?php unset($_SESSION['crupdate']); ?>  
-                  <?php else:?>
-                    <button type="submit" id="add" class="btn btn-primary add" placeholder="ADD" name="add" value="add">Add</button>
-                  <?php endif;?>  
+                  <button type="button" class="btn btn-info" id="update" placeholder="update" name="update">Update</button>
+                         
+                  <button type="button" id="add" class="btn btn-primary" placeholder="ADD" name="add" value="add">Add</button>
+               
                   <button type="button" class="btn btn-primary" id="closeForm">Close</button>
                 </form>
               </div>
