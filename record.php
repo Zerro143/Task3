@@ -59,7 +59,7 @@
             </div>
             <div class="col-75">
               <input type="text" id="fname" name="fname" placeholder="Your name.."value="<?php echo $_SESSION['fname']; unset($_SESSION['fname']);?>">
-              <span class="error">* <?php echo $_SESSION['fnameErr'];unset($_SESSION['fnameErr']);?></span>
+              <span class="error"id = "ferr">* </span>
             </div>
 
           </div>
@@ -69,7 +69,7 @@
             </div>
             <div class="col-75">
               <input type="text" id="lname" name="lname" placeholder="Your last name.." value="<?php echo $_SESSION['lname'];unset($_SESSION['lname']);?>">
-              <span class="error">* <?php echo $_SESSION['lnameErr'];unset($_SESSION['lnameErr']);?></span>
+              <span class="error" id = "lerr">* </span>
             </div>
           </div>
           <div class="row">
@@ -78,7 +78,7 @@
             </div>
             <div class="col-75">
               <input type="date" name="bdate" id="bdate"value="<?php echo $_SESSION['bdate'];unset($_SESSION['bdate']);?>">
-              <span class="error">* <?php echo $_SESSION['bdateErr'];unset($_SESSION['bdateErr']);?></span>
+              <span class="error" id="bderr">*</span>
 
             </div>
           </div>
@@ -88,7 +88,7 @@
             </div>
             <div class="col-75">
             <input type="phone" id="m" name="m"placeholder="Mobile no." value="<?php echo $_SESSION['m']; unset($_SESSION['m']);?>">  
-            <span class="error">* <?php echo $_SESSION['mErr'];unset($_SESSION['mErr']);?></span>
+            <span class="error"id = "merr">* </span>
             </div>
           </div>
           <div class="row">
@@ -97,7 +97,7 @@
             </div>
             <div class="col-75">
             <input type="email" id="mail" name="mail"placeholder="Email" value="<?php echo  $_SESSION['mail'];unset( $_SESSION['mail']);?>">  
-            <span class="error">* <?php echo $_SESSION['mailErr'];unset($_SESSION['mailErr']);?></span>
+            <span class="error" id="mailerr">* </span>
             </div>
           </div>
           <div class="row">
@@ -105,7 +105,7 @@
                   <label for="course">Course:</label>
               </div>
               <div class="col-75">
-              <select name = "course">
+              <select id = "course" class = "course "name = "course">
                       <?php while($row = $result->fetch_assoc()): ?>
                       <option value="<?php echo $row['course_id'];?>"><?php echo $row['course'];?> </option>
 
@@ -144,7 +144,7 @@
             </div>
           </div>
 
-          <center><button type="submit" class="btn btn-primary" placeholder="add" name="add">Add</button></center>
+          <center><button id="add" type="submit" class="btn btn-primary" value = "add">Add</button></center>
           <?php endif;?>
           
 

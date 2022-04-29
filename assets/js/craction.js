@@ -3,6 +3,7 @@ $("#myForm").hide();
 $(document).ready(function(){
    
     const f = /^[a-zA-Z]*$/;
+    const k = /(7|8|9)\d{9}/;
 
     
 
@@ -63,7 +64,7 @@ $(document).ready(function(){
        
         
         var btn = $("#add").attr("value");
-        var course = $("#course").val()
+        var course = $("#course").val();
         
         //alert(course + "Added to Database")
         if(course !== ""){

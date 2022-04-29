@@ -1,4 +1,56 @@
 <?php 
+session_start();
+include 'conn.php';
+
+$a = $_POST['a'];
+echo $a;
+exit;
+
+
+if ($a == "add") {
+    
+    $course = $_POST['b'];
+    $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
+    echo $sql;
+    //mysqli_query($conn, $sql);
+   
+  
+    
+}
+
+if ($a == "del") {
+    $course_id = $_POST['c'];
+    $sql = "DELETE FROM student WHERE id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
+    echo $sql;
+    //mysqli_query($conn, $sql);
+  
+
+   
+    
+  
+}
+
+
+if ($a == "update") {
+    
+    $id = $_POST['c'];
+    $course = $_POST['b'];
+    
+    $sql = "UPDATE student SET `fname` = '$fname', `lname` = '$lname' , `email` = '$email' , `m` = $m , `course_id` = '$course_id' , `bdate` = '$bdate', `update_date`= '$cdate' WHERE id = $id" ;
+    echo $sql;  
+    //mysqli_query($conn, $sql);
+     
+
+  
+    
+    
+}
+
+
+
+mysqli_close($conn);
+?>
+<?php /* 
     session_start();
     include 'conn.php';
     //$_SESSION['message']="";
@@ -232,6 +284,6 @@
 
     
    
-    mysqli_close($conn);
+    mysqli_close($conn);*/
     
 ?>

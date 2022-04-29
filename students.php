@@ -59,14 +59,11 @@
       <?php   include 'nav.php';?>
     </section>
     <?php   include 'alert.php';?>
+
+    <?php include 'btn.php';?>
     <div class="container" >
            
-            
-            <button class="btn-xs btn-primary" onclick="window.open('record.php','popup','width=600,height=600'); return false;">Create Student Record</button>
-            <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course Data</button>
-            <?php /*
-            <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course</button>*/?>
-        </div> 
+        
     <section id=main>
 
    

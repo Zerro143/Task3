@@ -10,14 +10,7 @@ include 'conn.php';?>
         <section id="header">
           <?php   include 'nav.php';?>
         </section>
-        <div class="container" >
-           
-            
-            <button class="btn-xs btn-primary" onclick="window.open('record.php','popup','width=600,height=600'); return false;">Create Student Record</button>
-            <button class="btn-xs btn-primary" onclick="location.href='students.php'">Show All Students Record</button>
-            <?php /*
-            <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course</button>*/?>
-        </div>            
+        <?php include 'btn.php';?>         
         <div class="container">            
                    
            
