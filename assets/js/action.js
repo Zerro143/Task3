@@ -4,6 +4,8 @@ $(document).ready(function(){
 
     $("#openForm").click(function(){
         $("#myForm").show();
+        $("#update").hide();
+        $("#add").show();
         $("#crerr").html("");
     });
     $("#closeForm").click(function(){
@@ -11,7 +13,10 @@ $(document).ready(function(){
         $("#crerr").html("");
     });
 
-    $("#edit").click(function(){
+    $("#edit").click(function(e){
+        e.preventDefault();
+        $("#add").hide();
+        $("#update").show();
         $("#myForm").show();
     });
     
@@ -27,7 +32,7 @@ $(document).ready(function(){
             data:{a:add,b:course}, 
             success:function(dataabc){ 
                 alert(course + " Added to Database");
-                
+                $("#course").val("");
             }});
         }else{
             //alert("Please enter the Course");

@@ -8,7 +8,7 @@ $_SESSION['crupdate']=false;
 #$_SESSION['msg_type']="";
 
 $a = $_POST['a'];
-
+echo $a;
 
 
 if ($a == "add") {
