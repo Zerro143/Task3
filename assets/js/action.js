@@ -27,11 +27,13 @@ $(document).ready(function(){
         $("#update").click(function(e){
             e.preventDefault();
             var btn = $("#update").val();
+            var course = $("#course").val()
             if(course !== ""){
                 $.ajax({url:"upcr.php", 
                 method:"POST", 
                 data:{a:btn,b:course,c:cid}, 
                 success:function(dataabc){ 
+                    window.location.href="course.php";
                     alert(course + " Updated in Database");
                     $("#course").val("");
                     $("#crerr").html("");
@@ -58,6 +60,7 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:btn,b:course}, 
             success:function(dataabc){ 
+                window.location.href="course.php";
                 alert(course + " Added to Database");
                 $("#course").val("");
                 $("#crerr").html("");
@@ -77,10 +80,12 @@ $(document).ready(function(){
         var btn = "del";
           
         if(confirm("Are you sure u want to delete" + course)){
+            
             $.ajax({url:"upcr.php", 
             method:"POST", 
             data:{a:btn,c:cid}, 
             success:function(dataabc){ 
+                window.location.href="course.php";
                 alert(course + " Deleted from Database");
                 
             }});
