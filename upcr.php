@@ -8,8 +8,8 @@ $_SESSION['crupdate']=false;
 #$_SESSION['msg_type']="";
 
 $a = $_POST['a'];
-echo $a;
-exit;
+//echo $a;
+//exit;
 
 
 if ($a == "add") {
@@ -35,33 +35,17 @@ if (isset($_GET['delete'])) {
    header("location:course.php");
 }
 
-if (isset($_GET['edit'])){
-    $id = $_GET['edit'];
-    $_SESSION['crupdate']=true;
-    $sql = "SELECT * FROM course WHERE course_id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    mysqli_query($conn, $sql); 
-    $result = $conn->query($sql);  
-    $row = $result->fetch_array();
-    $_SESSION['cid']=$row['course_id'];
-    $_SESSION['course']=$row['course'];
-    header("location:course.php"); 
-    
-     
-   
-}
 
-if (isset($_POST['update'])) {
+if ($a == "update") {
     
-    $id = $_POST['id'];
-    $course = $_POST['course'];
-    //echo $id;
-    //echo $course;
+    $id = $_POST['c'];
+    $course = $_POST['b'];
+    
     $sql = "UPDATE course SET course = '$course' WHERE course_id = $id";// or die("ERROR: Data not stored in database.".mysqli_error($conn));
     echo $sql;  
     //mysqli_query($conn, $sql);
-    //echo $sql;   
-    $_SESSION['message'] = "Course has been Edited";
-    $_SESSION['msg_type'] = "Success";
+     
+
     //header("location:course.php"); 
   
     

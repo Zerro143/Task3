@@ -6,6 +6,8 @@ $(document).ready(function(){
         $("#myForm").show();
         $("#update").hide();
         $("#add").show();
+        
+        $("#course").val("");
         $("#crerr").html("");
     });
     $("#closeForm").click(function(){
@@ -13,32 +15,52 @@ $(document).ready(function(){
         $("#crerr").html("");
     });
 
-    $("#edit").click(function(e){
-        var cid = $("#course_id").html();
-        var course = $("#course_name").html();
-        e.preventDefault();
+    $(".edit").click(function(){
+        
+        var cid = $(this).attr("did");
+        var course = $(this).attr("dname");
+             
         $("#add").hide();
         $("#update").show();
         $("#myForm").show();
-        $("#cid").val(cid);
         $("#course").val(course);
+        $("#update").click(function(e){
+            e.preventDefault();
+            var btn = $("#update").val();
+            if(course !== ""){
+                $.ajax({url:"upcr.php", 
+                method:"POST", 
+                data:{a:btn,b:course,c:cid}, 
+                success:function(dataabc){ 
+                    alert(course + " Updated in Database");
+                    $("#course").val("");
+                    $("#crerr").html("");
+                }});
+            }else{
+                //alert("Please enter the Course");
+                $("#crerr").html("<b>Please Enter the Course</b>")
+            }
+
+        });
+        
+       
     });
     
     $("#add").click(function(e){
         e.preventDefault();
        
         
-        var add = $("#add").attr("value");
+        var btn = $("#add").attr("value");
         var course = $("#course").val()
         //alert(course + "Added to Database")
         if(course !== ""){
             $.ajax({url:"upcr.php", 
             method:"POST", 
-            data:{a:add,b:course}, 
+            data:{a:btn,b:course}, 
             success:function(dataabc){ 
                 alert(course + " Added to Database");
                 $("#course").val("");
-                $("#crerr").html("")
+                $("#crerr").html("");
             }});
         }else{
             //alert("Please enter the Course");

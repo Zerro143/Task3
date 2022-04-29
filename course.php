@@ -85,11 +85,12 @@ mysqli_query($conn, $sql);
               while($row = $result->fetch_assoc()):?> 
               <div class="row" justify-content-center>
                 <tr>
-                  <td id = "course_id"><?php echo $row['course_id'];?></td>
-                  <td id = "course_name"><?php echo $row['course'];?></td>
+                  <td id = "course_id<?php echo $row['course_id'];?>"><?php echo $row['course_id'];?></td>
+                  <td id = "course_name<?php echo $row['course'];?>"><?php echo $row['course'];?></td>
                   <td>  
-                    <a id="edit" href="upcr.php?edit=<?php echo $row['course_id'];?>"class="btn btn-info">Edit</a>
-                    <a href="upcr.php?delete=<?php echo $row['course_id'];?>"class="btn btn-danger">Delete</a>
+                    <button id="edit" class="btn btn-info edit" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Edit</button>
+                    <button id="Delete" class="btn btn-info delete" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Delete</button>
+                    
                   </td>
               
                 </tr>
@@ -109,10 +110,10 @@ mysqli_query($conn, $sql);
                   <input type="hidden" id="cid" value="cid">
                   <div class="row">
                     <label for="course"><b>Couse Name</b></label>
-                    <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
+                    <input type="text" id="course" placeholder="Enter course" name="course" value="" >
                     <span id="crerr"></span>
                   </div>
-                  <button type="button" class="btn btn-info" id="update" placeholder="update" name="update">Update</button>
+                  <button type="button" id="update" class="btn btn-info"  placeholder="update" value="update">Update</button>
                          
                   <button type="button" id="add" class="btn btn-primary" placeholder="ADD" name="add" value="add">Add</button>
                
