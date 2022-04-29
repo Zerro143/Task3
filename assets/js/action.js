@@ -35,8 +35,8 @@ $(document).ready(function(){
                     $.ajax({url:"upcr.php", 
                     method:"POST", 
                     data:{a:btn,b:course,c:cid}, 
-                    success:function(dataabc){ 
-                        window.location.href="course.php";
+                    success:function(){ 
+                        $("#dt").show();
                         alert(course + " Updated in Database");
                         $("#course").val("");
                         $("#crerr").html("");
@@ -69,8 +69,9 @@ $(document).ready(function(){
                 method:"POST", 
                 data:{a:btn,b:course}, 
                 success:function(dataabc){ 
-                    window.location.href="course.php";
+                    
                     alert(course + " Added to Database");
+                    $("#dt").show();
                     $("#course").val("");
                     $("#crerr").html("");
                 }});
@@ -100,7 +101,7 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:btn,c:cid}, 
             success:function(dataabc){ 
-                window.location.href="course.php";
+                $("#dt").show();
                 alert(course + " Deleted from Database");
                 
             }});
