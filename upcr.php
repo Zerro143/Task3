@@ -9,6 +9,7 @@ $_SESSION['crupdate']=false;
 
 $a = $_POST['a'];
 echo $a;
+exit;
 
 
 if ($a == "add") {

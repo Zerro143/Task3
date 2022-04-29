@@ -23,7 +23,7 @@ $(document).ready(function(){
     $("#add").click(function(e){
         e.preventDefault();
         
-        var add = $(".add").attr("value");
+        var add = $("#add").attr("value");
         var course = $("#course").val()
         //alert(course + "Added to Database")
         if(course !== ""){
