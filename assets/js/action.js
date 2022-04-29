@@ -37,7 +37,7 @@ $(document).ready(function(){
                     $("#crerr").html("");
                 }});
             }else{
-                //alert("Please enter the Course");
+                
                 $("#crerr").html("<b>Please Enter the Course</b>")
             }
 
@@ -67,6 +67,26 @@ $(document).ready(function(){
             $("#crerr").html("<b>Please Enter the Course</b>")
         }
     
+    });
+
+    $(".delete").click(function(e){
+        e.preventDefault();
+        
+        var cid = $(this).attr("did");
+        var course = $(this).attr("dname");
+        var btn = "del";
+          
+        if(confirm("Are you sure u want to delete" + course)){
+            $.ajax({url:"upcr.php", 
+            method:"POST", 
+            data:{a:btn,c:cid}, 
+            success:function(dataabc){ 
+                alert(course + " Deleted from Database");
+                
+            }});
+        }
+
+
     });
 
 });

@@ -1,11 +1,6 @@
 <?php 
 session_start();
 include 'conn.php';
-$id="0";
-$_SESSION['crupdate']=false;
-
-#$_SESSION['message']="";
-#$_SESSION['msg_type']="";
 
 $a = $_POST['a'];
 //echo $a;
@@ -23,16 +18,16 @@ if ($a == "add") {
     
 }
 
-if (isset($_GET['delete'])) {
-    $course_id = $_GET['delete'];
+if ($a == "del") {
+    $course_id = $_POST['c'];
     $sql = "DELETE FROM course WHERE course_id = $course_id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
-   mysqli_query($conn, $sql);
+   echo $sql;
+    //mysqli_query($conn, $sql);
   
 
-   $_SESSION['message'] = "Course and Course Related Students has been deleted";
-   $_SESSION['msg_type'] = "Danger";
+   
     
-   header("location:course.php");
+  
 }
 
 
@@ -46,7 +41,6 @@ if ($a == "update") {
     //mysqli_query($conn, $sql);
      
 
-    //header("location:course.php"); 
   
     
     

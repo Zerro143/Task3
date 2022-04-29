@@ -89,7 +89,7 @@ mysqli_query($conn, $sql);
                   <td id = "course_name<?php echo $row['course'];?>"><?php echo $row['course'];?></td>
                   <td>  
                     <button id="edit" class="btn btn-info edit" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Edit</button>
-                    <button id="Delete" class="btn btn-info delete" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Delete</button>
+                    <button id="Delete" class="btn btn-danger delete" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Delete</button>
                     
                   </td>
               
