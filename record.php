@@ -41,7 +41,7 @@
   <head>
       <title>Create Record</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/bs.css"> 
   </head>
   <body>
     <section id="header">
@@ -156,5 +156,9 @@
         </form>
       </div>
       </div>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/saction.js"></script>
   </body>
 </html>      

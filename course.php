@@ -1,75 +1,32 @@
 <?php  
 session_start();
 include 'conn.php';
-
-$id="";
 mysqli_query($conn, $sql);
 ?>
-
-<style>
-
-.col-2{
-  text-align: center;
-  margin-top: 6px;
-  
-}
-.col-1{
-  text-align: center;
-  margin-top: 6px;
-}
-.form-popup {
-    display: none;
-    position: relative;
-    right: 15px;
-   
-    z-index: 9;
-  }
-  .form-container {
-    max-width: 400px;
-   
-    text-align: center;
-    
-  }
-  .form-container input[type=text] {
-    width: 100%;
-    padding: 5px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-  }
-  
-
-</style>
 
 
 <html>
     <head>
         <title>Course Grid</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <script src="assets/js/jquery.js"></script>
-        <script>
-          
-        </script>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css"> 
+        
     </head>
 
   <body>
     <section id="header">
-      <?php   include 'nav.php';?>
+      <?php include 'nav.php';?>
     </section>
-    <?php   include 'alert.php';?>
-    <div class="container" >
-               
+    <?php include 'alert.php';?>
+   
+    <?php include 'btn.php';?>
+          
                 
-      <button class="btn-xs btn-primary" onclick="window.open('record.php','popup','width=600,height=600'); return false;">Create Student Record</button>
-      <button class="btn-xs btn-primary" onclick="location.href='students.php'">Show All Students Record</button>
-      <button class="btn-xs btn-primary" id="openForm">Add</button>
-      <?php /*
-      <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course</button>*/?>
-    </div> 
+      
     <section id = "dt">
       <div class="container">
-  
+
         <div class="row" justify-content-center>
           <table class="table">
             <thead>
@@ -90,15 +47,16 @@ mysqli_query($conn, $sql);
                     <td>  
                       <button id="edit" class="btn btn-info edit" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Edit</button>
                       <button id="Delete" class="btn btn-danger delete" did="<?php echo $row['course_id'];?>" dname="<?php echo $row['course'];?>">Delete</button>
-                      
+
                     </td>
                 
                   </tr>
                 </div>  
               <?php endwhile;?>
           </table>
-                
-                  
+
+
+
         </div>
       </div>
     </section>
@@ -132,6 +90,6 @@ mysqli_query($conn, $sql);
     <script src="assets/js/bootstrap.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/action.js"></script>
+    <script src="assets/js/craction.js"></script>
   </body>
 </html>
