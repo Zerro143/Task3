@@ -1,5 +1,7 @@
+$("#myForm").hide();
+
 $(document).ready(function(){
-    $("#myForm").hide();
+   
   
 
     $("#openForm").click(function(){
