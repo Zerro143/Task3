@@ -4,7 +4,7 @@ $(document).ready(function(){
    
     const f = /^[a-zA-Z]*$/;
 
-    $("#dt").load("course.php #dt")
+    
 
     $("#openForm").click(function(){
         $("#myForm").show();
@@ -38,7 +38,7 @@ $(document).ready(function(){
                     method:"POST", 
                     data:{a:btn,b:course,c:cid}, 
                     success:function(){ 
-                        $("#dt").show();
+                        location.reload();
                         $("#myForm").hide();
                         alert(course + " Updated in Database");
                         $("#course").val("");
@@ -72,7 +72,7 @@ $(document).ready(function(){
                 method:"POST", 
                 data:{a:btn,b:course}, 
                 success:function(dataabc){ 
-                    $("#dt").show();
+                    location.reload();
                     alert(course + " Added to Database");
                     $("#myForm").hide();
                     $("#course").val("");
@@ -104,7 +104,7 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:btn,c:cid}, 
             success:function(dataabc){ 
-                $("#dt").show();
+                location.reload();
                 alert(course + " Deleted from Database");
                 
             }});
