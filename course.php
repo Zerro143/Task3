@@ -85,8 +85,8 @@ mysqli_query($conn, $sql);
               while($row = $result->fetch_assoc()):?> 
               <div class="row" justify-content-center>
                 <tr>
-                  <td><?php echo $row['course_id'];?></td>
-                  <td><?php echo $row['course'];?></td>
+                  <td id = "course_id"><?php echo $row['course_id'];?></td>
+                  <td id = "course_name"><?php echo $row['course'];?></td>
                   <td>  
                     <a id="edit" href="upcr.php?edit=<?php echo $row['course_id'];?>"class="btn btn-info">Edit</a>
                     <a href="upcr.php?delete=<?php echo $row['course_id'];?>"class="btn btn-danger">Delete</a>
@@ -106,7 +106,7 @@ mysqli_query($conn, $sql);
             <div style="padding-left:20px">
               <div class="form" id="myForm">
                 <form class="form-container" id="courseform">
-                  <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
+                  <input type="hidden" id="cid" value="cid">
                   <div class="row">
                     <label for="course"><b>Couse Name</b></label>
                     <input type="text" id="course" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >

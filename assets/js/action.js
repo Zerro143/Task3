@@ -14,14 +14,19 @@ $(document).ready(function(){
     });
 
     $("#edit").click(function(e){
+        var cid = $("#course_id").html();
+        var course = $("#course_name").html();
         e.preventDefault();
         $("#add").hide();
         $("#update").show();
         $("#myForm").show();
+        $("#cid").val(cid);
+        $("#course").val(course);
     });
     
     $("#add").click(function(e){
         e.preventDefault();
+       
         
         var add = $("#add").attr("value");
         var course = $("#course").val()
@@ -33,6 +38,7 @@ $(document).ready(function(){
             success:function(dataabc){ 
                 alert(course + " Added to Database");
                 $("#course").val("");
+                $("#crerr").html("")
             }});
         }else{
             //alert("Please enter the Course");
