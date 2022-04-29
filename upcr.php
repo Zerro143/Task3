@@ -7,21 +7,19 @@ $_SESSION['crupdate']=false;
 #$_SESSION['message']="";
 #$_SESSION['msg_type']="";
 
-$add = $_POST['a'];
-$a = json_decode($add);
-echo $a;
+$a = $_POST['a'];
 
-if (isset($_POST['add'])) {
+
+
+if ($a == "add") {
     
     $course = $_POST['b'];
     $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
     echo $sql;
     //mysqli_query($conn, $sql);
+   
+  
     
-    $_SESSION['message'] = "Course has been Added";
-    $_SESSION['msg_type'] = "Success";
-    
-    header("location:course.php");
 }
 
 if (isset($_GET['delete'])) {

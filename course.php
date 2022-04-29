@@ -49,19 +49,7 @@ mysqli_query($conn, $sql);
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
         <script src="assets/js/jquery.js"></script>
         <script>
-          $(document).ready(function(){
-            $("#myForm").hide()
-            $("#open_form").click(function(){
-              $("#myForm").show();
-            });
-            $("#closeForm").click(function(){
-              $("#myForm").hide();
-            });
-            $("#edit").click(function(){
-              $("#myForm").show();
-            });
-          });
-
+          
         </script>
     </head>
 
@@ -75,7 +63,7 @@ mysqli_query($conn, $sql);
                 
       <button class="btn-xs btn-primary" onclick="window.open('record.php','popup','width=600,height=600'); return false;">Create Student Record</button>
       <button class="btn-xs btn-primary" onclick="location.href='students.php'">Show All Students Record</button>
-      <button class="btn-xs btn-primary" id="open_form">Add</button>
+      <button class="btn-xs btn-primary" id="openForm">Add</button>
       <?php /*
       <button class="btn-xs btn-primary" onclick="location.href='course.php'">Show Course</button>*/?>
     </div> 
@@ -111,32 +99,15 @@ mysqli_query($conn, $sql);
 
                 
       </div>
-      <div class="row">
-        <div class="col-4">
-        
-          <div style="padding-left:20px">
-            <div class="form" id="myForm">
-              <form action="upcr.php" class="form-container" method="POST">
-                <input type="hidden" name="id" value="<?php echo $id = $_SESSION['cid'];?>">
-                <div class="row">
-                  <label for="course"><b>Couse Name</b></label>
-                  <input type="text" placeholder="Enter course" name="course" value="<?php echo /*$course;*/$_SESSION['course'];  unset($_SESSION['course']);?>" >
-                </div>
-                <?php
-                  if($_SESSION['crupdate']==true):
-                ?>
-                  <button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button>
-                <?php unset($_SESSION['crupdate']); ?>  
-                <?php else:?>
-                  <button type="submit" class="btn btn-primary" placeholder="ADD" name="add">Add</button>
-                <?php endif;?>  
-                <button type="button" class="btn btn-primary" id="closeForm">Close</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      <section id="myForm">
+        <?php include 'addcr.php';?>
+      </section>
           
     </div>
+
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/action.js"></script>
   </body>
 </html>
