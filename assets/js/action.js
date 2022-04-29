@@ -40,7 +40,7 @@ $(document).ready(function(){
                     success:function(){ 
                         location.reload();
                         $("#myForm").hide();
-                        alert(course + " Updated in Database");
+                        alert(course + "Updated in Database");
                         $("#course").val("");
                         $("#crerr").html("");
                     }});
