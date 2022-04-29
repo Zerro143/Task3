@@ -2,7 +2,7 @@ $("#myForm").hide();
 
 $(document).ready(function(){
    
-  
+    const f = /^[a-zA-Z]*$/;
 
     $("#openForm").click(function(){
         $("#myForm").show();
@@ -31,15 +31,20 @@ $(document).ready(function(){
             var btn = $("#update").val();
             var course = $("#course").val()
             if(course !== ""){
-                $.ajax({url:"upcr.php", 
-                method:"POST", 
-                data:{a:btn,b:course,c:cid}, 
-                success:function(dataabc){ 
-                    window.location.href="course.php";
-                    alert(course + " Updated in Database");
-                    $("#course").val("");
-                    $("#crerr").html("");
-                }});
+                if(f.test(course) == true){
+                    $.ajax({url:"upcr.php", 
+                    method:"POST", 
+                    data:{a:btn,b:course,c:cid}, 
+                    success:function(dataabc){ 
+                        window.location.href="course.php";
+                        alert(course + " Updated in Database");
+                        $("#course").val("");
+                        $("#crerr").html("");
+                    }});
+                }
+                else{
+                    $("#crerr").html("<b>Only Alphabets are allowed</b>")
+                }
             }else{
                 
                 $("#crerr").html("<b>Please Enter the Course</b>")
@@ -56,7 +61,7 @@ $(document).ready(function(){
         
         var btn = $("#add").attr("value");
         var course = $("#course").val()
-        var f = /^[a-zA-Z]*$/;
+        
         //alert(course + "Added to Database")
         if(course !== ""){
             if(f.test(course) == true){
