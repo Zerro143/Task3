@@ -56,17 +56,25 @@ $(document).ready(function(){
         
         var btn = $("#add").attr("value");
         var course = $("#course").val()
+        var f = /^[a-zA-Z]*$/;
         //alert(course + "Added to Database")
         if(course !== ""){
-            $.ajax({url:"upcr.php", 
-            method:"POST", 
-            data:{a:btn,b:course}, 
-            success:function(dataabc){ 
-                window.location.href="course.php";
-                alert(course + " Added to Database");
-                $("#course").val("");
-                $("#crerr").html("");
-            }});
+            if(f.test(course) == true){
+                $.ajax({url:"upcr.php", 
+                method:"POST", 
+                data:{a:btn,b:course}, 
+                success:function(dataabc){ 
+                    window.location.href="course.php";
+                    alert(course + " Added to Database");
+                    $("#course").val("");
+                    $("#crerr").html("");
+                }});
+
+            }
+            else{
+                $("#crerr").html("<b>Only Alphabets are allowed</b>")
+            }
+
         }else{
             //alert("Please enter the Course");
             $("#crerr").html("<b>Please Enter the Course</b>")
