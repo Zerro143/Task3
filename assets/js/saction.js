@@ -17,56 +17,55 @@ $(document).ready(function(){
        var course = $("#course").val();
        var cdate = $("#cdate").val();
        
-
+      
        
 
 
        //function validate(fname,lname,m,mail){
             var errcode = 0;
            // const f = /^[a-zA-Z]*$/;
-            if(fname !== ""){
-                if (f.test(fname) == false){
-                    $("#fname").focus();
-                    //alert("Only char ");
-                    $("#ferr").html("<b>Only Alphabets are allowed</b>")
-                    errcode = 1;
-                }
-               
-            }
-            else{
+            if(fname == ""){
                 $("#fname").focus();
                 $("#ferr").html("<b>Please Enter you name</b>")
                 //alert("enter name");
                 errcode = 1;
-            }
-            if(lname !== ""){
-                if (f.test(lname) == false){
-                    $("#lname").focus();
-                    //alert("Only char ");
-                    $("#lerr").html("<b>Only Alphabets are allowed</b>")
-                    errcode = 1;
-                }
+                
                
             }
-            else{
+            if (f.test(fname) == false){
+                $("#fname").focus();
+                //alert("Only char ");
+                $("#ferr").html("<b>Only Alphabets are allowed</b>")
+                errcode = 1;
+            }
+            if(lname !== ""){
                 $("#lname").focus();
                 $("#lerr").html("<b>Please Enter your Last name</b>")
                 //alert("enter lname");
                 errcode = 1;
+                
             }
+            if (f.test(lname) == false){
+                $("#lname").focus();
+                //alert("Only char ");
+                $("#lerr").html("<b>Only Alphabets are allowed</b>")
+                errcode = 1;
+            }
+           
             //if(m !== ""){
                 if(k.test(m) == false){
                     $("#m").focus();
                     //alert("Invalid Phone Number");
-                    $("#merr").html("<b>Invalid Phone Number</b>")
+                    $("#merr").html("<b>Only 10 digits are allowed</b>")
                     errcode = 1;
 
                 }
             //}
+            
           
 
 
-            return errcode;
+            //return errcode;
 
            
         //}
@@ -76,6 +75,7 @@ $(document).ready(function(){
             $("#ferr").html("")
             $("#lerr").html("")
             $("#merr").html("")
+            
         }
             
         //validate(fname,lname,m,mail);
