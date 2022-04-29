@@ -4,6 +4,8 @@ $(document).ready(function(){
    
     const f = /^[a-zA-Z]*$/;
 
+    $("#dt").load("course.php #dt")
+
     $("#openForm").click(function(){
         $("#myForm").show();
         $("#update").hide();
@@ -37,6 +39,7 @@ $(document).ready(function(){
                     data:{a:btn,b:course,c:cid}, 
                     success:function(){ 
                         $("#dt").show();
+                        $("#myForm").hide();
                         alert(course + " Updated in Database");
                         $("#course").val("");
                         $("#crerr").html("");
@@ -69,9 +72,9 @@ $(document).ready(function(){
                 method:"POST", 
                 data:{a:btn,b:course}, 
                 success:function(dataabc){ 
-                    
-                    alert(course + " Added to Database");
                     $("#dt").show();
+                    alert(course + " Added to Database");
+                    $("#myForm").hide();
                     $("#course").val("");
                     $("#crerr").html("");
                 }});
