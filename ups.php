@@ -4,25 +4,33 @@ include 'conn.php';
 
 $a = $_POST['a'];
 echo $a;
-exit;
+
 
 
 if ($a == "add") {
     
-    $course = $_POST['b'];
-    $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    echo $sql;
-    //mysqli_query($conn, $sql);
+    $fname = $_POST['b'];
+    $lname = $_POST['c'];
+    $email = $_POST['f'];
+    $m = $_POST['e'];
+    $course_id =$_POST['g'];
+    $bdate= $_POST['d'];
+    $cdate= $_POST['h'];
+
+
+    $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
+    //echo $sql;
+    mysqli_query($conn, $sql);
    
   
     
 }
 
 if ($a == "del") {
-    $course_id = $_POST['c'];
+    $id = $_POST['c'];
     $sql = "DELETE FROM student WHERE id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    echo $sql;
-    //mysqli_query($conn, $sql);
+    //echo $sql;
+    mysqli_query($conn, $sql);
   
 
    

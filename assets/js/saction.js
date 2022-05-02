@@ -1,6 +1,29 @@
 //$("#myForm").hide();
 
 $(document).ready(function(){
+
+    $(".delete").click(function(){
+        
+        
+        var id = $(this).attr("did");
+        //var course = $(this).attr("dname");
+        var btn = "del";
+          
+        if(confirm("Are you sure u want to delete")){
+            
+            $.ajax({url:"ups.php", 
+            method:"POST", 
+            data:{a:btn,c:id}, 
+            success:function(dataabc){ 
+                location.reload();
+                alert("Record Deleted from Database");
+                
+            }});
+        }
+
+
+    });
+  
    
     var f = /^[a-zA-Z]*$/;
     var k = /(6|7|8|9)\d{9}/;
@@ -80,7 +103,7 @@ $(document).ready(function(){
          return errcode;
 
         
-     }
+    }
 
 
     $("#add").click(function(e){
@@ -116,20 +139,15 @@ $(document).ready(function(){
                 method:"POST", 
                 data:{a:btn,b:fname,c:lname,d:bdate,e:m,f:mail,g:course,h:cdate}, 
                 success:function(dataabc){ 
-                    location.reload();
+                    //location.reload();
                     alert(fname + " Added to Database");
                     
                 }});
             
             
         }
-            
-        
-           
-               
-        
-       
-    
+
     });
-  
+
+    
 });

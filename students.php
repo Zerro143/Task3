@@ -64,7 +64,7 @@
     <div class="container" >
            
         
-    <section id=main>
+    <section id= "main">
 
    
       <div class="container">
@@ -109,8 +109,8 @@
                       <td><?php echo $row['created_date'];?></td>
                       <td><?php echo $row['update_date'];?></td>
                       <td>   
-                        <a class="btn btn-info" onclick="window.open('ups.php?edit=<?php echo $row['id'];?>','popup','width=600,height=600'); return false;">Edit</a>
-                        <a href="ups.php?delete=<?php echo $row['id'];?>"class="btn btn-danger">Delete</a>
+                      <button id="edit" class="btn btn-info edit" did="<?php echo $row['id'];?>" dname="<?php echo $row['fname'];?>">Edit</button>
+                      <button id="Delete" class="btn btn-danger delete" did="<?php echo $row['id'];?>">Delete</button>
                       </td>
                           
                     </tr>
@@ -120,18 +120,21 @@
 
                           
         </div>
-        <div class="row">
-          <div class="col-4">
-            <?php //<a class="btn btn-primary" onclick="openForm()">Add</a>?>
-            <div style="padding-left:20px">
-              <div class="form" id="myForm">
-              <?php //include 'record.php';?>
-              </div>
-            </div>
-          </div>
-        </div>
+       
                           
       </div>
     </section>  
+    <div class="container">
+      <div class="col-4">
+       
+        <div>
+          <div class="form" id="myForm">
+            <?php //include 'record.php';?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/saction.js"></script>
   </body>
 </html>

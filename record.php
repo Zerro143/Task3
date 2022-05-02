@@ -3,6 +3,7 @@
   include 'conn.php';
   $sql = "SELECT * FROM `course`;"; 
   $result = $conn->query($sql); 
+  $sql1 = "SELECT * FROM `course`;";
   // output data of each row
 
 ?>
@@ -45,7 +46,7 @@
   </head>
   <body>
     <section id="header">
-        <?php   include 'nav.php';?>
+        <?php //include 'nav.php';?>
     </section>
     <?php   include 'alert.php';?>
     <div class="container">
@@ -133,7 +134,7 @@
           <?php unset($_SESSION['supdate']); ?>  
           
           <?php else:?>
-            
+
           <center><button id="add" type="submit" class="btn btn-primary" value = "add">Add</button></center>
           <?php endif;?>
           
