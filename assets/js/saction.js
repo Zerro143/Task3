@@ -2,11 +2,13 @@
 
 $(document).ready(function(){
    
-    const f = /^[a-zA-Z]*$/;
-    const k = /(6|7|8|9)\d{9}/;
+    var f = /^[a-zA-Z]*$/;
+    var k = /(6|7|8|9)\d{9}/;
+
 
     $("#add").click(function(e){
         e.preventDefault();
+
       
        var btn = $("#add").attr("value");
        var fname = $("#fname").val();
@@ -17,7 +19,7 @@ $(document).ready(function(){
        var course = $("#course").val();
        var cdate = $("#cdate").val();
        
-      
+       
        
 
 
@@ -26,54 +28,52 @@ $(document).ready(function(){
            // const f = /^[a-zA-Z]*$/;
             if(fname == ""){
                 $("#fname").focus();
-                $("#ferr").html("<b>Please Enter you name</b>")
+                $("#ferr").html("<b>Please Enter you name</b>");
                 //alert("enter name");
                 errcode = 1;
                    
-            }
-            else{
-                $("#ferr").html("")
+            } else{
+                //console.log("1")
+                $("#ferr").html("");
+                //$("#ferr").hide();
+                
 
             }
             if (f.test(fname) == false){
                 $("#fname").focus();
                 //alert("Only char ");
-                $("#ferr").html("<b>Only Alphabets are allowed</b>")
+                $("#ferr").html("<b>Only Alphabets are allowed</b>");
                 errcode = 1;
-            }
-            else{
-                $("#ferr").html("")
-            }
+            } 
+            
             if(lname == ""){
                 $("#lname").focus();
-                $("#lerr").html("<b>Please Enter your Last name</b>")
+                $("#lerr").html("<b>Please Enter your Last name</b>");
                 //alert("enter lname");
                 errcode = 1;
                 
             }
             else{
-                $("#lerr").html("")
+                $("#lerr").html("");
             }
             if (f.test(lname) == false){
                 $("#lname").focus();
                 //alert("Only char ");
-                $("#lerr").html("<b>Only Alphabets are allowed</b>")
+                $("#lerr").html("<b>Only Alphabets are allowed</b>");
                 errcode = 1;
             }
-            else{
-                $("#lerr").html("")
-            }
+            
            
             //if(m !== ""){
                 if(k.test(m) == false){
                     $("#m").focus();
                     //alert("Invalid Phone Number");
-                    $("#merr").html("<b>Only 10 digits are allowed</b>")
+                    $("#merr").html("<b>Only 10 digits are allowed</b>");
                     errcode = 1;
 
                 }
                 else{
-                    $("#merr").html("")
+                    $("#merr").html("");
                 }
             //}
             
@@ -86,10 +86,10 @@ $(document).ready(function(){
         //}
 
         if(errcode==0){
-            alert("Success")
-            $("#ferr").html("")
-            $("#lerr").html("")
-            $("#merr").html("")
+            alert("Success");
+            $("#ferr").html("");
+            $("#lerr").html("");
+            $("#merr").html("");
             
         }
             

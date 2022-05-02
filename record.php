@@ -50,7 +50,7 @@
     <?php   include 'alert.php';?>
     <div class="container">
       <div class="form">
-        <form name="student"  action="ups.php" method="post">
+        <form name="student"  action="#" method="post">
           
           <div class="row">
           <input type="hidden" name="id" value="<?php echo $id = $_SESSION['sid'];?>">
