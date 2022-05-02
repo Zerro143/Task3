@@ -51,7 +51,8 @@
     <head>
         <title>Student Grid</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css"> 
+        <link rel="stylesheet" href="assets/css/style.css">
     </head>
 
   <body>
@@ -70,7 +71,7 @@
       <div class="container">
 
         <div class="row justify-content-center">
-            <table class="table">
+        <table class="table datatable" id = "datatable">
               <thead>
                 <tr>
                   <th>Student ID</th>
@@ -97,20 +98,23 @@
                       <td><?php echo $row['lname'];?></td>
                       <td><?php echo $row['email'];?></td>
                       <td><?php echo $row['m'];?></td>
-                      <td><?php echo $row['course'];
-                                //echo $course_id;
-                           //$sql2 = "SELECT * FROM course WHERE id = $course_id";
-                           //$result2 = $conn->query($sql2); 
-                           //while($row1 = $result2->fetch_assoc())
-                           //{
-                           //     echo $row1['course']; 
-                           //}  ?></td>
+                      <td><?php echo $row['course'];?></td>
                       <td><?php echo $row['bdate'];?></td>
                       <td><?php echo $row['created_date'];?></td>
                       <td><?php echo $row['update_date'];?></td>
                       <td>   
-                      <button id="edit" class="btn btn-info edit" did="<?php echo $row['id'];?>" dname="<?php echo $row['fname'];?>">Edit</button>
-                      <button id="Delete" class="btn btn-danger delete" did="<?php echo $row['id'];?>">Delete</button>
+                      <button id="edit" class="btn btn-info edit1" 
+                        did="<?php echo $row['id'];?>" 
+                        dfname="<?php echo $row['fname'];?>" 
+                        dlname = "<?php echo $row['lname'];?>"
+                        dmail= "<?php echo $row['email'];?>"
+                        dm = "<?php echo $row['m'];?>"
+                        dbdate = "<?php echo $row['bdate'];?>"
+                        dcourse = "<?php echo $row['course_id'];?>"
+                        >
+                        Edit
+                      </button>
+                      <button id="Delete" class="btn btn-danger delete1" did="<?php echo $row['id'];?>">Delete</button>
                       </td>
                           
                     </tr>
@@ -124,17 +128,15 @@
                           
       </div>
     </section>  
-    <div class="container">
-      <div class="col-4">
-       
-        <div>
-          <div class="form" id="myForm">
-            <?php //include 'record.php';?>
-          </div>
-        </div>
-      </div>
-    </div>
+    <section id = "course_form" class="container mt-5">
+          <?php include 'addcr.php';?>
+    </section>
+    <section id = "student_form" class="studentForm container mt-5">
+          <?php include 'record.php';?>
+    </section>
+   
     <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/craction.js"></script>
     <script src="assets/js/saction.js"></script>
   </body>
 </html>

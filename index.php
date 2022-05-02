@@ -7,6 +7,8 @@ include 'conn.php';?>
     </head>
     <body>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap.css"> 
+        <link rel="stylesheet" href="assets/css/style.css">
         <section id="header">
           <?php   include 'nav.php';?>
         </section>
@@ -15,7 +17,7 @@ include 'conn.php';?>
                    
            
             <div class="row justify-content-center">
-              <table class="table">
+            <table class="table datatable" id = "datatable">
                 <thead>
                   <tr>
                     <th>Student ID</th>
@@ -47,8 +49,19 @@ include 'conn.php';?>
 
             </div>
         </div>
+
+        <section id = "course_form" class="container mt-5">
+          <?php include 'addcr.php';?>
+        </section>
+        <section id = "student_form" class="studentForm container mt-5">
+          <?php include 'record.php';?>
+        </section>
         
-        <script src="assets/js/saction.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/craction.js"></script>
+    <script src="assets/js/saction.js"></script>
         
     </body>
 </html>

@@ -3,11 +3,11 @@ session_start();
 include 'conn.php';
 
 $a = $_POST['a'];
-echo $a;
+//echo $a;
 
 
 
-if ($a == "add") {
+if ($a == "add1") {
     
     $fname = $_POST['b'];
     $lname = $_POST['c'];
@@ -39,14 +39,20 @@ if ($a == "del") {
 }
 
 
-if ($a == "update") {
+if ($a == "update1") {
     
-    $id = $_POST['c'];
-    $course = $_POST['b'];
+    $id = $_POST['i'];
+    $fname = $_POST['b'];
+    $lname = $_POST['c'];
+    $email = $_POST['f'];
+    $m = $_POST['e'];
+    $course_id =$_POST['g'];
+    $bdate= $_POST['d'];
+    $cdate= $_POST['h'];
     
     $sql = "UPDATE student SET `fname` = '$fname', `lname` = '$lname' , `email` = '$email' , `m` = $m , `course_id` = '$course_id' , `bdate` = '$bdate', `update_date`= '$cdate' WHERE id = $id" ;
-    echo $sql;  
-    //mysqli_query($conn, $sql);
+    //echo $sql;  
+    mysqli_query($conn, $sql);
      
 
   
