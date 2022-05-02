@@ -5,12 +5,13 @@ $(document).ready(function(){
     const f = /^[a-zA-Z]*$/;
     const k = /(7|8|9)\d{9}/;
 
-    
+    //$("#dt").hide();
 
     $("#openForm").click(function(){
         $("#myForm").show();
         $("#update").hide();
         $("#add").show();
+        $("#datatable").hide();
         
         $("#course").val("");
         $("#crerr").html("");
@@ -18,6 +19,7 @@ $(document).ready(function(){
     $("#closeForm").click(function(){
         $("#myForm").hide();
         $("#crerr").html("");
+        $("#dt").show();
     });
 
     $(".edit").click(function(){
@@ -26,6 +28,7 @@ $(document).ready(function(){
         var course = $(this).attr("dname");
              
         $("#add").hide();
+        $("#dt").hide();
         $("#update").show();
         $("#myForm").show();
         $("#course").val(course);

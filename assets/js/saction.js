@@ -4,6 +4,83 @@ $(document).ready(function(){
    
     var f = /^[a-zA-Z]*$/;
     var k = /(6|7|8|9)\d{9}/;
+    var q = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    var errcode = 0;
+
+    function validate(fname,lname,m,mail){
+         errcode = 0 ;
+        //const f = /^[a-zA-Z]*$/;
+         if(fname == ""){
+             $("#fname").focus();
+             $("#ferr").html("<b>Please Enter you name</b>");
+             //alert("enter name");
+             errcode = 1;
+                
+         } else{
+             //console.log("1")
+             $("#ferr").html("");
+             //$("#ferr").hide();
+             
+
+         }
+         if (f.test(fname) == false){
+             $("#fname").focus();
+             //alert("Only char ");
+             $("#ferr").html("<b>Only Alphabets are allowed</b>");
+             errcode = 1;
+         } 
+         
+         
+         if(lname == ""){
+             $("#lname").focus();
+             $("#lerr").html("<b>Please Enter your Last name</b>");
+             //alert("enter lname");
+             errcode = 1;
+             
+         }
+         else{
+             $("#lerr").html("");
+         }
+         if (f.test(lname) == false){
+             $("#lname").focus();
+             //alert("Only char ");
+             $("#lerr").html("<b>Only Alphabets are allowed</b>");
+             errcode = 1;
+         }
+         
+        
+         //if(m !== ""){
+         if(k.test(m) == false){
+             $("#m").focus();
+             //alert("Invalid Phone Number");
+             $("#merr").html("<b>Only 10 digits are allowed</b>");
+             errcode = 1;
+     
+         }
+         else{
+             $("#merr").html("");
+         }
+       
+
+         if (q.test(mail) == false){
+             $("#mailerr").html("<b> Please enter a valid email id");
+             errcode = 1;
+
+         }
+         else{
+             $("#mailerr").html("");
+         }
+     
+
+         //}
+         
+       
+         
+
+         return errcode;
+
+        
+     }
 
 
     $("#add").click(function(e){
@@ -18,82 +95,22 @@ $(document).ready(function(){
        var mail = $("#mail").val();
        var course = $("#course").val();
        var cdate = $("#cdate").val();
+     
        
        
        
+       errcode = validate(fname,lname,m,mail);
+       
 
-
-       //function validate(fname,lname,m,mail){
-            var errcode = 0;
-           // const f = /^[a-zA-Z]*$/;
-            if(fname == ""){
-                $("#fname").focus();
-                $("#ferr").html("<b>Please Enter you name</b>");
-                //alert("enter name");
-                errcode = 1;
-                   
-            } else{
-                //console.log("1")
-                $("#ferr").html("");
-                //$("#ferr").hide();
-                
-
-            }
-            if (f.test(fname) == false){
-                $("#fname").focus();
-                //alert("Only char ");
-                $("#ferr").html("<b>Only Alphabets are allowed</b>");
-                errcode = 1;
-            } 
-            
-            if(lname == ""){
-                $("#lname").focus();
-                $("#lerr").html("<b>Please Enter your Last name</b>");
-                //alert("enter lname");
-                errcode = 1;
-                
-            }
-            else{
-                $("#lerr").html("");
-            }
-            if (f.test(lname) == false){
-                $("#lname").focus();
-                //alert("Only char ");
-                $("#lerr").html("<b>Only Alphabets are allowed</b>");
-                errcode = 1;
-            }
-            
-           
-            //if(m !== ""){
-                if(k.test(m) == false){
-                    $("#m").focus();
-                    //alert("Invalid Phone Number");
-                    $("#merr").html("<b>Only 10 digits are allowed</b>");
-                    errcode = 1;
-
-                }
-                else{
-                    $("#merr").html("");
-                }
-            //}
-            
-          
-
-
-            //return errcode;
-
-           
-        //}
-
-        if(errcode==0){
+      
+      
+        if(errcode == 0){
             alert("Success");
-            $("#ferr").html("");
-            $("#lerr").html("");
-            $("#merr").html("");
+            
             
         }
             
-        //validate(fname,lname,m,mail);
+        
            
                
         

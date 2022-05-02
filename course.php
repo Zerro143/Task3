@@ -24,11 +24,11 @@ mysqli_query($conn, $sql);
           
                 
       
-    <section id = "dt">
-      <div class="container">
+    <section id = "">
+      <div class="container" id = "">
 
         <div class="row" justify-content-center>
-          <table class="table">
+          <table class="table" id = "datatable">
             <thead>
               <tr>
                 <th>Course ID</th>
