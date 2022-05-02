@@ -63,6 +63,9 @@ mysqli_query($conn, $sql);
     <section id = "course_form" class="container mt-5">
       <?php include 'addcr.php';?>
     </section>
+    <section id = "student_form" class="studentForm container mt-5">
+          <?php include 'record.php';?>
+    </section>
           
     </div>
 
@@ -70,5 +73,6 @@ mysqli_query($conn, $sql);
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/craction.js"></script>
+    <script src="assets/js/saction.js"></script>
   </body>
 </html>

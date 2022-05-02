@@ -1,7 +1,9 @@
 //$("#myForm").hide();
 
+
 $(".studentForm").hide();
 $(document).ready(function(){
+    
  
    
     var f = /^[a-zA-Z]*$/;
@@ -85,11 +87,23 @@ $(document).ready(function(){
 
         
     }
+    $("#studentAdd").click(function(e){
+        e.preventDefault();
+        $("#upd").hide();
+        $(".studentForm").show();
+        $(".datatable").hide();
+        $("#add1").show();
+        $("#myForm").hide();
+
+
+    });
+
+
     $(".edit1").click(function(e){
         e.preventDefault();
         $(".studentForm").show();
         $(".datatable").hide();
-        $("#update1").show();
+        $("#upd").show();
         $("#add1").hide();
 
         
@@ -146,6 +160,7 @@ $(document).ready(function(){
                 success:function(dataabc){ 
                     alert(" Date has been Updated to Database");
                     location.reload();
+                    $("#upd").hide();
                                     
                     
                 }});
@@ -202,15 +217,7 @@ $(document).ready(function(){
     });
 
       
-    $("#studentAdd").click(function(e){
-        e.preventDefault();
-        $("#update1").hide();
-        $(".studentForm").show();
-        $(".datatable").hide();
-        $("#add1").show();
-
-
-    });
+   
     $("#cls").click(function(){
         $(".studentForm").hide();
         $("#crerr").html("");

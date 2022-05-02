@@ -51,6 +51,9 @@
   form{
       align-self: center;
   }
+  .studentform{
+    display: none;
+  }
 </style>
 
 <html>

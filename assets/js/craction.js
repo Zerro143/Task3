@@ -12,9 +12,10 @@ $(document).ready(function(){
         $("#update").hide();
         $("#add").show();
         $(".datatable").hide();
-        
+       
         $("#course").val("");
         $("#crerr").html("");
+        $(".studentForm").hide();
     });
     $("#closeForm").click(function(){
         $("#myForm").hide();
