@@ -29,14 +29,20 @@ $(document).ready(function(){
                 $("#ferr").html("<b>Please Enter you name</b>")
                 //alert("enter name");
                 errcode = 1;
-                
-               
+                   
+            }
+            else{
+                $("#ferr").html("")
+
             }
             if (f.test(fname) == false){
                 $("#fname").focus();
                 //alert("Only char ");
                 $("#ferr").html("<b>Only Alphabets are allowed</b>")
                 errcode = 1;
+            }
+            else{
+                $("#ferr").html("")
             }
             if(lname == ""){
                 $("#lname").focus();
@@ -45,11 +51,17 @@ $(document).ready(function(){
                 errcode = 1;
                 
             }
+            else{
+                $("#lerr").html("")
+            }
             if (f.test(lname) == false){
                 $("#lname").focus();
                 //alert("Only char ");
                 $("#lerr").html("<b>Only Alphabets are allowed</b>")
                 errcode = 1;
+            }
+            else{
+                $("#lerr").html("")
             }
            
             //if(m !== ""){
@@ -59,6 +71,9 @@ $(document).ready(function(){
                     $("#merr").html("<b>Only 10 digits are allowed</b>")
                     errcode = 1;
 
+                }
+                else{
+                    $("#merr").html("")
                 }
             //}
             

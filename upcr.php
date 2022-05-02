@@ -49,4 +49,5 @@ if ($a == "update") {
 
 
 mysqli_close($conn);
+
 ?>
