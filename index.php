@@ -38,9 +38,19 @@ include 'conn.php';?>
                         <td><?php echo $row['lname'];?></td>
                         <td><?php echo $row['email'];?></td>
                         <td>   
-                          <a class="btn btn-info" onclick="window.open('ups.php?edit=<?php echo $row['id'];?>','popup','width=600,height=600'); return false;">Edit</a>
-                          <a href="ups.php?delete=<?php echo $row['id'];?>"class="btn btn-danger">Delete</a>
-                        </td>
+                      <button id="edit" class="btn btn-info edit1" 
+                        did="<?php echo $row['id'];?>" 
+                        dfname="<?php echo $row['fname'];?>" 
+                        dlname = "<?php echo $row['lname'];?>"
+                        dmail= "<?php echo $row['email'];?>"
+                        dm = "<?php echo $row['m'];?>"
+                        dbdate = "<?php echo $row['bdate'];?>"
+                        dcourse = "<?php echo $row['course_id'];?>"
+                        >
+                        Edit
+                      </button>
+                      <button id="Delete" class="btn btn-danger delete1" did="<?php echo $row['id'];?>">Delete</button>
+                      </td>
                     
                       </tr>
                     </div>  
