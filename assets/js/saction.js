@@ -1,6 +1,7 @@
 //$("#myForm").hide();
 
 $(document).ready(function(){
+    $("#update").hide();
 
     $(".delete").click(function(){
         
@@ -23,7 +24,21 @@ $(document).ready(function(){
 
 
     });
-  
+    $(".edit").click(function(){
+        
+        var id =$this.attr("did");
+        $.ajax({url:"record.php", 
+        method:"POST", 
+        data:{c:id}, 
+        success:function(dataabc){ 
+            window.location.href="record.php";
+            $("#update").show();
+            $("#add").hide();
+            
+            
+        }});
+
+    });
    
     var f = /^[a-zA-Z]*$/;
     var k = /(6|7|8|9)\d{9}/;

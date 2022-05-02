@@ -3,7 +3,10 @@
   include 'conn.php';
   $sql = "SELECT * FROM `course`;"; 
   $result = $conn->query($sql); 
-  $sql1 = "SELECT * FROM `course`;";
+
+  $id = $_POST['c'];
+  $sql1 = "SELECT * FROM `student` WHERE $id;";
+  $result1 = $conn->query($sql1);
   // output data of each row
 
 ?>
@@ -54,12 +57,12 @@
         <form name="student"  action="#" method="post">
           
           <div class="row">
-          <input type="hidden" name="id" value="<?php echo $id = $_SESSION['sid'];?>">
+          <input type="hidden" name="id" value="<?php echo $id;?>">
             <div class="col-25">
               <label for="fname">First Name</label>
             </div>
             <div class="col-75">
-              <input type="text" id="fname" name="fname" placeholder="Your name.."value="<?php echo $_SESSION['fname']; unset($_SESSION['fname']);?>">
+              <input type="text" id="fname" name="fname" placeholder="Your name.."value="<?php echo $row['fname']?>">
               <span class="error"id = "ferr">* </span>
             </div>
 
@@ -69,7 +72,7 @@
               <label for="lname">Last Name</label>
             </div>
             <div class="col-75">
-              <input type="text" id="lname" name="lname" placeholder="Your last name.." value="<?php echo $_SESSION['lname'];unset($_SESSION['lname']);?>">
+              <input type="text" id="lname" name="lname" placeholder="Your last name.." value="<?php echo $row['lname'];?>">
               <span class="error" id = "lerr">* </span>
             </div>
           </div>
@@ -78,7 +81,7 @@
               <label>Birth Date</label>
             </div>
             <div class="col-75">
-              <input type="date" name="bdate" id="bdate"value="<?php echo $_SESSION['bdate'];unset($_SESSION['bdate']);?>">
+              <input type="date" name="bdate" id="bdate"value="<?php echo $row['bdate'];?>">
               <span class="error" id="bderr">*</span>
 
             </div>
@@ -88,7 +91,7 @@
             <label for="m">Mobile no:</label>
             </div>
             <div class="col-75">
-            <input type="phone" id="m" name="m"placeholder="Mobile no." value="<?php echo $_SESSION['m']; unset($_SESSION['m']);?>">  
+            <input type="phone" id="m" name="m"placeholder="Mobile no." value="<?php echo $row['m']; ?>">  
             <span class="error"id = "merr">* </span>
             </div>
           </div>
@@ -97,7 +100,7 @@
             <label for="mail">Email:</label>
             </div>
             <div class="col-75">
-            <input type="email" id="mail" name="mail"placeholder="Email" value="<?php echo  $_SESSION['mail'];unset( $_SESSION['mail']);?>">  
+            <input type="email" id="mail" name="mail"placeholder="Email" value="<?php echo  $row['mail'];?>">  
             <span class="error" id="mailerr">* </span>
             </div>
           </div>
@@ -112,31 +115,19 @@
 
                       <?php endwhile;?>
                   </select> 
-              <span class="error">* <?php echo $_SESSION['course_idErr'];unset($_SESSION['course_idErr']);?></span>
+              <span class="error">* </span>
             </div>
           </div>
-          <?php
-            if($_SESSION['supdate']==true):
-          ?>    
-          <div class="row">
-            <div class="col-25">
-              <label>Updated Date</label>
-            </div>
-            <div class="col-75">
-              <input type="date" name="cdate" id="cdate"  value="<?php echo  $_SESSION['cdate'];unset( $_SESSION['cdate']);?>">
-              <span class="error">* <?php echo $_SESSION['cdateErr'];unset($_SESSION['cdateErr']);?></span>
-
-            </div>
-          </div>
-      
+             
+         
           
-          <center><button type="submit" class="btn btn-info" placeholder="update" name="update">Update</button></center>
-          <?php unset($_SESSION['supdate']); ?>  
+          <center><button id = "update"type="submit" class="btn btn-info" placeholder="update" name="update">Update</button></center>
+        
           
-          <?php else:?>
+         
 
           <center><button id="add" type="submit" class="btn btn-primary" value = "add">Add</button></center>
-          <?php endif;?>
+         
           
 
 
