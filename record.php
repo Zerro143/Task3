@@ -133,17 +133,7 @@
           <?php unset($_SESSION['supdate']); ?>  
           
           <?php else:?>
-            <div class="row">
-            <div class="col-25">
-              <label>Created Date</label>
-            </div>
-            <div class="col-75">
-              <input type="date" name="cdate" id="cdate"  value="<?php echo  $_SESSION['cdate'];unset( $_SESSION['cdate']);?>">
-              <span class="error">* <?php echo $_SESSION['cdateErr'];unset($_SESSION['cdateErr']);?></span>
-
-            </div>
-          </div>
-
+            
           <center><button id="add" type="submit" class="btn btn-primary" value = "add">Add</button></center>
           <?php endif;?>
           

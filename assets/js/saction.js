@@ -86,6 +86,12 @@ $(document).ready(function(){
     $("#add").click(function(e){
         e.preventDefault();
 
+        var today = new Date();
+        var y = String(today.getFullYear());
+        var mm = String(1 + today.getMonth()).padStart(2, '0');
+        var d = String(1 + today.getDay()).padStart(2, '0');
+
+        
       
        var btn = $("#add").attr("value");
        var fname = $("#fname").val();
@@ -94,7 +100,7 @@ $(document).ready(function(){
        var m = $("#m").val();
        var mail = $("#mail").val();
        var course = $("#course").val();
-       var cdate = $("#cdate").val();
+       var cdate = y +"-"+ mm +"-"+ d; //$("#cdate").val();
      
        
        
@@ -105,7 +111,15 @@ $(document).ready(function(){
       
       
         if(errcode == 0){
-            alert("Success");
+           
+            $.ajax({url:"ups.php", 
+                method:"POST", 
+                data:{a:btn,b:fname,c:lname,d:bdate,e:m,f:mail,g:course,h:cdate}, 
+                success:function(dataabc){ 
+                    location.reload();
+                    alert(fname + " Added to Database");
+                    
+                }});
             
             
         }
