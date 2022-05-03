@@ -35,8 +35,8 @@ $(document).ready(function(){
              $("#ferr").html("<b>Only Alphabets are allowed</b>");
              errcode = 1;
          } 
-         
-         
+                                                                                                                                                                                                            
+                                                                                                                                                                                                            
          if(lname == ""){
              $("#lname").focus();
              $("#lerr").html("<b>Please Enter your Last name</b>");
