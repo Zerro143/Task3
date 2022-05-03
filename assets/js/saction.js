@@ -94,8 +94,14 @@ $(document).ready(function(){
         $(".datatable").hide();
         $("#add1").show();
         $("#myForm").hide();
-
-
+        
+        $("#did").val("");
+        $("#fname").val("");
+        $("#lname").val("");
+        $("#bdate").val("");
+        $("#m").val("");
+        $("#mail").val("");
+        $("#course1").val("");
     });
 
 
@@ -180,6 +186,9 @@ $(document).ready(function(){
         var mm = String(1 + today.getMonth()).padStart(2, '0');
         var d = String(1 + today.getDay()).padStart(2, '0');
 
+              
+       
+        
         
       
       var btn = $("#add1").attr("value");
@@ -222,6 +231,17 @@ $(document).ready(function(){
         $(".studentForm").hide();
         $("#crerr").html("");
         $(".datatable").show();
+
+
+        
+        var id = $("#did").val("");
+        var fname = $("#fname").val("");
+        var lname = $("#lname").val("");
+        var bdate = $("#bdate").val("");
+        var m = $("#m").val("");
+        var mail = $("#mail").val("");
+        var course = $("#course1").val("");
+        
     });
 
     $(".delete1").click(function(){
