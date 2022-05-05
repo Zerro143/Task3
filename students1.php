@@ -42,6 +42,8 @@
 <html>
     <head>
         <title>Student Grid</title>
+           
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/bootstrap.css"> 
         <link rel="stylesheet" href="assets/css/style.css">
@@ -51,7 +53,7 @@
     <section id="header">
       <?php   include 'nav.php';?>
     </section>
-    <?php   include 'alert.php';?>
+
 
     <?php include 'btn.php';?>
     <div class="container" >
@@ -78,40 +80,10 @@
                   <th colspan="4">Action</th>
                 </tr>
               </thead>
-                <?php $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
-                    $result = $conn->query($sql); 
+              <tbody id="content">
 
-                    // output data of each row
-                  while($row = $result->fetch_assoc()):?> 
-                  <div class="row" justify-content-center>
-                    <tr>
-                      <td><?php echo $row['id'];?></td>
-                      <td><?php echo $row['fname'];?></td>
-                      <td><?php echo $row['lname'];?></td>
-                      <td><?php echo $row['email'];?></td>
-                      <td><?php echo $row['m'];?></td>
-                      <td><?php echo $row['course'];?></td>
-                      <td><?php echo $row['bdate'];?></td>
-                      <td><?php echo $row['created_date'];?></td>
-                      <td><?php echo $row['update_date'];?></td>
-                      <td>   
-                      <button id="edit" class="btn btn-info edit1" 
-                        did="<?php echo $row['id'];?>" 
-                        dfname="<?php echo $row['fname'];?>" 
-                        dlname = "<?php echo $row['lname'];?>"
-                        dmail= "<?php echo $row['email'];?>"
-                        dm = "<?php echo $row['m'];?>"
-                        dbdate = "<?php echo $row['bdate'];?>"
-                        dcourse = "<?php echo $row['course_id'];?>"
-                        >
-                        Edit
-                      </button>
-                      <button id="Delete" class="btn btn-danger delete1" did="<?php echo $row['id'];?>">Delete</button>
-                      </td>
-                          
-                    </tr>
-                  </div>  
-                <?php endwhile;?>
+              </tbody>
+               
             </table>
 
                           
@@ -128,7 +100,46 @@
     </section>
    
     <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/craction.js"></script>
+
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+   
+    <script>
+        $("#tda").DataTable({
+                "ajax":{
+                    "url": "getdata.php",
+                    "method":"post",
+                    "dataSrc": "",
+                   
+               
+                },
+                
+                columns: [
+                  {"data":"id"},
+                  {"data":"fname"},
+                  {"data":"lname"},
+                  {"data":"email"},
+                  {"data":"m"},
+                  {"data":"course"},
+                  {"data":"bdate"},
+                  {"data":"created_date"},
+                  {"data":"update_date"},
+
+                ],
+                
+
+
+        })
+        $('#tda tbody').on( 'click', 'tr', function () {
+                    $(this).toggleClass('selected');
+        } );
+ 
+      
+
+        $('#button').click( function () {
+                table.row('.selected').remove().draw( false );
+        } );
+    </script>
+     <script src="assets/js/craction.js"></script>
     <script src="assets/js/saction.js"></script>
   </body>
 </html>
