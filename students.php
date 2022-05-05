@@ -60,10 +60,10 @@
     <section id= "main">
 
    
-      <div class="container">
+      <div class="container"  id = "datatable">
 
         <div class="row justify-content-center">
-        <table class="table datatable" id = "datatable">
+        <table class="table datatable">
               <thead>
                 <tr>
                   <th>Student ID</th>
