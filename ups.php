@@ -85,6 +85,22 @@ if(isset($_POST['ids']) AND $a =="export"){
     }
     fclose($output);
 }
+if($a =="export"){
+
+    $output = fopen("output.csv", "w");
+    fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
+
+
+    $sql = "SELECT * FROM student JOIN course ON student.course_id = course.course_id;"; 
+    $result = $conn->query($sql);
+    while ($row = mysqli_fetch_assoc($result)) {
+        fputcsv($output, $row);
+        
+    }
+
+    fclose($output);
+}
+
 
 
 
