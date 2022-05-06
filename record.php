@@ -97,7 +97,7 @@
               <label>Birth Date</label>
             </div>
             <div class="col-75">
-              <input type="date" name="bdate" id="bdate"value="<?php echo $bdate;?>">
+              <input type="date" name="bdate" max="2013-01-01" id="bdate"value="<?php echo $bdate;?>">
               <span class="error" id="bderr">*</span>
 
             </div>

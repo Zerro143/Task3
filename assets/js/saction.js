@@ -9,13 +9,19 @@ $(document).ready(function(){
     var f = /^[a-zA-Z]*$/;
     var k = /(6|7|8|9)\d{9}/;
     var q = /^([_\-\.0-9a-zA-Z]+)@([_\-\.0-9a-zA-Z]+)\.([a-zA-Z]){2,7}$/;
+    
     //var errcode = 0;
 
-    function validate(fname,lname,m,mail){
+    function validate(fname,lname,m,mail,bdate){
          errcode = 0 ;
          
+         var dtCurrent = new Date();
+         var dtdob = new Date(bdate);
+         var aa = (dtCurrent.getFullYear() - dtdob.getFullYear())
+         
+         
 
-        
+         
          if(fname == ""){
              $("#fname").focus();
              $("#ferr").html("<b>Please Enter you name</b>");
@@ -76,6 +82,22 @@ $(document).ready(function(){
          else{
              $("#mailerr").html("");
          }
+         if(bdate == ""){
+            $("#bderr").html("<b> Please select the valid date");
+            alert("Enter DAte")
+            errocode = 1;
+
+           
+         }else{
+             
+        if (aa < 10) {
+            errcode = 1;
+
+            $("#bderr").html("<b> Only for age 10 and above");
+        }else{
+            $("#bderr").html("");
+        }
+        }
      
 
          //}
@@ -156,7 +178,7 @@ $(document).ready(function(){
         var course = $("#course1").val();
         var cdate = y +"-"+ mm +"-"+ d; //$("#cdate").val();
     
-        errcode = validate(fname,lname,m,mail);
+        errcode = validate(fname,lname,m,mail,bdate);
         
         if(errcode == 0){
            
@@ -188,7 +210,7 @@ $(document).ready(function(){
 
               
        
-        
+   
         
       
       var btn = $("#add1").attr("value");
@@ -201,9 +223,9 @@ $(document).ready(function(){
       var cdate = y +"-"+ mm +"-"+ d; //$("#cdate").val();
      
        
-       
-       
-       errcode = validate(fname,lname,m,mail);
+      
+
+       errcode = validate(fname,lname,m,mail,bdate);
        
 
       
