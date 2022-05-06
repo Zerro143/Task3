@@ -116,6 +116,9 @@ $(document).ready(function(){
         $(".datatable").hide();
         $("#add1").show();
         $("#myForm").hide();
+        $("#expall").hide();
+        $("#exp").hide();
+        $("#delsel").hide();
         
         $("#did").val("");
         $("#fname").val("");
@@ -133,7 +136,9 @@ $(document).ready(function(){
         $(".datatable").hide();
         $("#upd").show();
         $("#add1").hide();
-
+        $("#expall").hide();
+        $("#exp").hide();
+        $("#delsel").hide();
         
       
         var did = $(this).attr("did");
@@ -362,7 +367,9 @@ $(document).ready(function(){
         $(".studentForm").hide();
         $("#crerr").html("");
         $(".datatable").show();
-
+        $("#expall").show();
+        $("#exp").show();
+        $("#delsel").show();
 
         
         var id = $("#did").val("");

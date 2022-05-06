@@ -12,7 +12,9 @@ $(document).ready(function(){
         $("#update").hide();
         $("#add").show();
         $(".datatable").hide();
-       
+        $("#expall").hide();
+        $("#exp").hide();
+        $("#delsel").hide();
         $("#course").val("");
         $("#crerr").html("");
         $(".studentForm").hide();
@@ -20,11 +22,16 @@ $(document).ready(function(){
     $("#closeForm").click(function(){
         $("#myForm").hide();
         $("#crerr").html("");
+        $("#expall").show();
+        $("#exp").show();
+        $("#delsel").show();
         $(".datatable").show();
     });
 
     $(".edit").click(function(){
-        
+        $("#expall").hide();
+        $("#exp").hide();
+        $("#delsel").hide();
         var cid = $(this).attr("did");
         var course = $(this).attr("dname");
              
