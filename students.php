@@ -66,7 +66,7 @@
         <table class="table datatable" id="tda">
               <thead>
                 <tr>
-                  <th><input type="checkbox" name="" id="checkbox"></td>
+                  <th><input type="checkbox" name="" id="master"></td>
                   <th>Student ID</th>
                   <th>First Name</th>
                   <th>Last Name</th>
@@ -86,7 +86,7 @@
                   while($row = $result->fetch_assoc()):?> 
                   <div class="row" justify-content-center>
                     <tr>
-                      <td><input type="checkbox" name="" id="checkbox" value=<?php echo $row['id'];?>></td>
+                      <td><input type="checkbox" class="sil" id="checkbox" value=<?php echo $row['id'];?>></td>
                       <td><?php echo $row['id'];?></td>
                       <td><?php echo $row['fname'];?></td>
                       <td><?php echo $row['lname'];?></td>

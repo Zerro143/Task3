@@ -246,7 +246,35 @@ $(document).ready(function(){
         }
 
     });
+    
+    $("#delsel").click(function(){
+        var allVals = [];  
+        $(".sil:checked").each(function(){
+            allVals.push($(this).attr("value"));
+        });
+        //alert(allVals.length); 
+        if(allVals.length == 0)  
+        {  
+            alert("Please select row.");  
+        }else{
+            if(confirm("Are you sure u want to delete")){
+                console.log(allVals);
+            }
 
+        }
+
+    });
+
+    $("#master").click(function(){
+        if($(this).is(':checked',true)){
+            $(".sil").prop('checked',true)
+        }
+        else{
+            $(".sil").prop('checked',false)
+        }
+
+    })
+  
       
    
     $("#cls").click(function(){
