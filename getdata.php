@@ -1,6 +1,6 @@
 <?php
     require_once "conn.php";   
-    $sql = $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
+    $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
     
    
     $result = $conn->query($sql); // output data of each row
