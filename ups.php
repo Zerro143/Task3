@@ -33,7 +33,7 @@ if ($a == "del") {
         foreach ($ids as $id_d)
         {
             $sql = "DELETE FROM student WHERE id = $id_d" or die("ERROR: Data no stored in database.".mysqli_error($conn));
-            echo $sql;
+            
             mysqli_query($conn, $sql);
         }
     }else{
@@ -69,13 +69,13 @@ if ($a == "update1") {
 if($a == "export"){
     if(isset($_POST['ids'])){
         $ids=$_POST['ids'];
-        $output = fopen("output.csv", "a");
+        $output = fopen("php://output", "w");
         fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
         foreach ($ids as $id_d)
         {
           
-
-            $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
+            echo $id_d;
+            $sql = "SELECT * FROM student JOIN course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
 
             $result = $conn->query($sql);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -83,13 +83,13 @@ if($a == "export"){
                 
 
             }
-            fclose($output);
+            
         }
     }
 
 }
 
 
-
+fclose($output);
 mysqli_close($conn);
 ?>
