@@ -34,10 +34,14 @@ if(!empty($_FILES["file"]["name"]))
             while (($getData = fgetcsv($csvFile, 10000, ",")) !== FALSE)
             {
                 // Get row data
-                $name = $getData[0];
-                $email = $getData[1];
-                $phone = $getData[2];
-                $status = $getData[3];
+                $fname = $getData[0];
+                $lname = $getData[1];
+                $email = $getData[3];
+                $m = $getData[4];
+                $course = $getData[5];
+                $bdate = $getData[6];
+                $cdate = $getData[7];
+                $udate = $getData[8];
  
                 // If user already exists in the database with the same email
                 $query = "SELECT id FROM student WHERE email = '" . $getData[1] . "'";
@@ -50,7 +54,7 @@ if(!empty($_FILES["file"]["name"]))
                 }
                 else
                 {
-                     mysqli_query($conn, "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')");
+                     mysqli_query($conn, "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course','$bdate','$cdate','$udate')");
  
                 }
             }
