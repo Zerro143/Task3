@@ -345,7 +345,17 @@ $(document).ready(function(){
         }
         
     })
+    $(".sil").click(function(){
   
+        if($(".sil").length == $(".sil:checked").length) {
+            $("#master").prop("checked", true);
+        } else {
+            $("#master").prop("checked", false);
+        }
+    })
+
+ 
+   
       
    
     $("#cls").click(function(){
