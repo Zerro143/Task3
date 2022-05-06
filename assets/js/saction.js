@@ -240,9 +240,9 @@ $(document).ready(function(){
             $.ajax({url:"ups.php", 
                 method:"POST", 
                 data:{a:btn,b:fname,c:lname,d:bdate,e:m,f:mail,g:course,h:cdate}, 
-                success:function(dataabc){ 
+                success:function(a){ 
                     alert(fname + " Added to Database");
-                    location.reload();
+                    //location.reload();
                                     
                     
                 }});
