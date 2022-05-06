@@ -300,7 +300,8 @@ $(document).ready(function(){
                         //alert ("Selected data deleted");
                         
                         window.location.href='output.csv';
-                        location.reload();
+                        $(".sil").prop('checked',false)
+                        $("#master").prop('checked',false)
 					}   
 				});
 
@@ -325,7 +326,8 @@ $(document).ready(function(){
                 //alert ("Selected data deleted");
              
                 window.location.href='output.csv';
-                location.reload();
+                $(".sil").prop('checked',false)
+                $("#master").prop('checked',false)
 			}   
     	});
 
