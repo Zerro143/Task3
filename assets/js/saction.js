@@ -299,7 +299,7 @@ $(document).ready(function(){
 					{   
                         //alert ("Selected data deleted");
                         location.reload();
-                        window.location.href='output.csv'
+                        window.location.href='output.csv';
 					}   
 				});
 
