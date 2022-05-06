@@ -79,6 +79,7 @@ if($a == "export"){
             $result = $conn->query($sql);
             while ($row = mysqli_fetch_assoc($result)) {
                 fputcsv($output, $row);
+                
             }
             fclose($output);
         }
