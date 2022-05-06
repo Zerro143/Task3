@@ -298,8 +298,9 @@ $(document).ready(function(){
 					success: function()  
 					{   
                         //alert ("Selected data deleted");
-                        location.reload();
+                        
                         window.location.href='output.csv';
+                        location.reload();
 					}   
 				});
 
@@ -322,8 +323,9 @@ $(document).ready(function(){
 			success: function()  
 			{   
                 //alert ("Selected data deleted");
-                location.reload();
+             
                 window.location.href='output.csv';
+                location.reload();
 			}   
     	});
 
