@@ -17,10 +17,15 @@ if ($a == "add1") {
     $bdate= $_POST['d'];
     $cdate= $_POST['h'];
 
-
+    $r1 = "SELECT COUNT(*) FROM student WHERE `email` = '$email'";
+    $a = mysqli_query($conn,$r1);
+    if($a<=0){
     $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
     //echo $sql;
-    mysqli_query($conn, $sql);
+    mysqli_query($conn, $sql);}
+    else{
+        echo "Person already exist in database";
+    }
    
   
     
