@@ -307,6 +307,30 @@ $(document).ready(function(){
         }
 
     });
+    $("#expall").click(function(e){
+        e.preventDefault();
+
+
+
+        
+        var btn= "expall";
+        $.ajax({   
+		  
+			type: "POST",  
+			url: "ups.php",  
+			data: {a:btn},
+			success: function()  
+			{   
+                //alert ("Selected data deleted");
+                location.reload();
+                window.location.href='output.csv';
+			}   
+    	});
+
+
+
+
+    });
 
     $("#master").click(function(){
         if($(this).is(':checked',true)){
