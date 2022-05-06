@@ -276,7 +276,8 @@ $(document).ready(function(){
         }
 
     });
-    $("#exp").click(function(){
+    $("#exp").click(function(e){
+        e.preventDefault();
         var allVals = [];  
         $(".sil:checked").each(function(){
             allVals.push($(this).attr("value"));
@@ -286,7 +287,7 @@ $(document).ready(function(){
         {  
             alert("Please select row.");  
         }else{
-            if(confirm("Are you sure u want to delete")){
+
                var join_selected_values = allVals.join(","); 
                var btn= "export";
                 $.ajax({   
@@ -298,9 +299,10 @@ $(document).ready(function(){
 					{   
                         //alert ("Selected data deleted");
                         location.reload();
+                        window.location.href='output.csv'
 					}   
 				});
-            }
+
 
         }
 
