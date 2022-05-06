@@ -258,7 +258,19 @@ $(document).ready(function(){
             alert("Please select row.");  
         }else{
             if(confirm("Are you sure u want to delete")){
-                console.log(allVals);
+               var join_selected_values = allVals.join(","); 
+               var btn= "del";
+                $.ajax({   
+				  
+					type: "POST",  
+					url: "ups.php",  
+					data: {ids:allVals,a:btn},
+					success: function()  
+					{   
+                        alert ("Selected data deleted");
+						//referesh table
+					}   
+				});
             }
 
         }

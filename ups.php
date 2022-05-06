@@ -27,15 +27,21 @@ if ($a == "add1") {
 }
 
 if ($a == "del") {
-    $id = $_POST['c'];
-    $sql = "DELETE FROM student WHERE id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    //echo $sql;
-    mysqli_query($conn, $sql);
-  
-
    
-    
-  
+    if(isset($_POST['ids'])){
+        $ids=$_POST['ids'];
+        foreach ($ids as $id_d)
+        {
+            $sql = "DELETE FROM student WHERE id = $id_d" or die("ERROR: Data no stored in database.".mysqli_error($conn));
+            echo $sql;
+            mysqli_query($conn, $sql);
+        }
+    }else{
+        $id = $_POST['c'];
+        $sql = "DELETE FROM student WHERE id = $id" or die("ERROR: Data no stored in database.".mysqli_error($conn));
+        mysqli_query($conn, $sql);
+    }
+
 }
 
 
