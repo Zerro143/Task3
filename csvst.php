@@ -44,7 +44,7 @@ if(!empty($_FILES["file"]["name"]))
                 $udate = $getData[8];
  
                 // If user already exists in the database with the same email
-                $query = "SELECT id FROM student WHERE email = '" . $getData[1] . "'";
+                $query = "SELECT id FROM student WHERE `email` = '$email'";
  
                 $check = mysqli_query($conn, $query);
  
