@@ -249,7 +249,7 @@ $(document).ready(function(){
                         location.reload();
                     }
                     else{
-                        alert("Email id has already been registerd")
+                        alert("Email already exist ")
                        
                     }
              
