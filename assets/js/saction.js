@@ -267,8 +267,8 @@ $(document).ready(function(){
 					data: {ids:allVals,a:btn},
 					success: function()  
 					{   
-                        alert ("Selected data deleted");
-						//referesh table
+                        //alert ("Selected data deleted");
+                        location.reload();
 					}   
 				});
             }
