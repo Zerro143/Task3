@@ -67,7 +67,7 @@ if ($a == "update1") {
 }
 
 
-if(isset($_POST['ids']) AND $a =="export"){
+if($a =="exp" AND isset($_POST['ids'])){
     $ids=$_POST['ids'];
     $output = fopen("output.csv", "w");
     fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
@@ -85,7 +85,7 @@ if(isset($_POST['ids']) AND $a =="export"){
     }
     fclose($output);
 }
-if($a =="export"){
+if($a =="expall"){
 
     $output = fopen("output.csv", "w");
     fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
