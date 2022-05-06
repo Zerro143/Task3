@@ -69,7 +69,7 @@ if ($a == "update1") {
 if($a == "export"){
     if(isset($_POST['ids'])){
         $ids=$_POST['ids'];
-        $output = fopen("php://output.csv", "w");
+        $output = fopen("output.csv", "w");
         fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
         foreach ($ids as $id_d)
         {
