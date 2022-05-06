@@ -66,6 +66,26 @@ if ($a == "update1") {
     
 }
 
+if($a == "export"){
+    if(isset($_POST['ids'])){
+        $ids=$_POST['ids'];
+        foreach ($ids as $id_d)
+        {
+            $output = fopen("output", "w");
+            fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
+
+            $sql = "SELECT * FROM student WHERE id=$id_d INNER JOIN course ON student.course_id = course.course_id;"; 
+
+            $result = $conn->query($sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+                fputcsv($output, $row);
+            }
+            fclose($output);
+        }
+    }
+
+}
+
 
 
 mysqli_close($conn);
