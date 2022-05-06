@@ -152,8 +152,21 @@
 
           
         </form>
+
       </div>
       </div>
+      <div class="container">
+    
+    <form action="csvst.php" method="post" enctype="multipart/form-data" id="upload_csv_form">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Please Select File</label>
+        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+      </div>
+      <div class="form-group">
+       <input type="submit" name="submit" value="submit" class="btn btn-primary">
+     </div>
+</form>
+</div>
 
   </body>
 </html>      
