@@ -276,6 +276,9 @@ $(document).ready(function(){
                         location.reload();
 					}   
 				});
+            }else{
+                $(".sil").prop('checked',false)
+                $("#master").prop("checked", false);
             }
 
         }
