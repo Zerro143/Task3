@@ -241,14 +241,16 @@ $(document).ready(function(){
                 method:"POST", 
                 data:{a:btn,b:fname,c:lname,d:bdate,e:m,f:mail,g:course,h:cdate}, 
                 success:function(a){ 
-                    var tr = $("#tr").val();
-                    if (tr<0){
+                    
+                    
+                    if (a==0){
                         alert(fname + " Added to Database");
                         //
                         location.reload();
                     }
                     else{
                         alert("Email id has already been registerd")
+                       
                     }
              
                                     

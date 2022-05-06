@@ -20,12 +20,12 @@ if ($a == "add1") {
     $r1 = "SELECT * FROM student WHERE `email` = '$email'";
     $r2 = mysqli_query($conn,$r1);
     $tr = $r2->num_rows;
-    if($tr<=0){
+    if($tr==0){
     $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
-    echo $sql;
-    //mysqli_query($conn, $sql);
+    echo $tr;
+    mysqli_query($conn, $sql);
     }else{
-        echo "<input type='hidden' id='tr' value ='$tr'>";
+        echo $tr;
 
     }
 
