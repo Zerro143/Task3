@@ -70,12 +70,12 @@ if ($a == "update1") {
 if($a =="exp" AND isset($_POST['ids'])){
     $ids=$_POST['ids'];
     $output = fopen("output.csv", "w");
-    fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
+    fputcsv($output, array('fname','lname','email','m','course', 'bdate','created_date','update_date'));
     foreach ($ids as $id_d)
     {
           
         echo $id_d;
-        $sql = "SELECT * FROM student INNER JOIN  course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
+        $sql = "SELECT  `fname`, `lname`, `email`, `m`, `course`, `bdate`, `created_date`, `update_date` FROM student INNER JOIN  course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
         $result = $conn->query($sql);
         while ($row = mysqli_fetch_assoc($result)) {
             fputcsv($output, $row);
@@ -88,10 +88,10 @@ if($a =="exp" AND isset($_POST['ids'])){
 if($a =="expall"){
 
     $output = fopen("output.csv", "w");
-    fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
+    fputcsv($output, array('fname','lname','email','m','course', 'bdate','created_date','update_date'));
 
 
-    $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
+    $sql = "SELECT `fname`, `lname`, `email`, `m`, `course`, `bdate`, `created_date`, `update_date` FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
     $result = $conn->query($sql);
     while ($row = mysqli_fetch_assoc($result)) {
         fputcsv($output, $row);
