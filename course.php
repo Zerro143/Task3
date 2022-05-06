@@ -1,7 +1,7 @@
 <?php  
 session_start();
 include 'conn.php';
-mysqli_query($conn, $sql);
+
 ?>
 
 
@@ -18,7 +18,7 @@ mysqli_query($conn, $sql);
     <section id="header">
       <?php include 'nav.php';?>
     </section>
-    <?php include 'alert.php';?>
+    <?php //include 'alert.php';?>
    
     <?php include 'btn.php';?>
           
@@ -36,7 +36,8 @@ mysqli_query($conn, $sql);
                 <th colspan="2">Action</th>
               </tr>
             </thead>
-              <?php $sql = "SELECT * FROM `course`;"; 
+              <?php 
+              $sql = "SELECT * FROM `course`;"; 
                   $result = $conn->query($sql); 
                   // output data of each row
                 while($row = $result->fetch_assoc()):?> 

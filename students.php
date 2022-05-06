@@ -51,7 +51,7 @@
     <section id="header">
       <?php   include 'nav.php';?>
     </section>
-    <?php   include 'alert.php';?>
+    <?php   //include 'alert.php';?>
 
     <?php include 'btn.php';?>
     <div class="container" >

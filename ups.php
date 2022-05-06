@@ -1,14 +1,20 @@
 <?php 
 session_start();
 include 'conn.php';
-
-$a = $_POST['a'];
+if(isset($_POST['a'])){
+    $a = $_POST['a'];
+    // echo $a."<br>";
+}
+else{
+    return;
+}
 //echo $a;
 
 
 
 if ($a == "add1") {
-    
+    //echo $a;
+    //exit;
     $fname = $_POST['b'];
     $lname = $_POST['c'];
     $email = $_POST['f'];
@@ -18,11 +24,14 @@ if ($a == "add1") {
     $cdate= $_POST['h'];
 
     $r1 = "SELECT * FROM student WHERE `email` = '$email'";
-    $r2 = mysqli_query($conn,$r1);
+    $r2 = $conn->query($r1);
     $tr = $r2->num_rows;
+    //echo $r1;
+    
     if($tr==0){
-    $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
+    $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`, `update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
     echo $tr;
+    
     mysqli_query($conn, $sql);
     }else{
         echo $tr;

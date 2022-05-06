@@ -1,30 +1,30 @@
 <?php 
-  session_start();
+  //session_start();
   include 'conn.php';
   $sql = "SELECT * FROM `course`;"; 
   $result = $conn->query($sql); 
 
-  $id = $_POST['c'];
-  echo $id;
+  //$id = $_POST['c'];
+  //echo $id;
   
-  if ($id > ""){
-  $sql1 = "SELECT * FROM `student` WHERE $id;";
-  $result1 = $conn->query($sql1);
-  while($row = $result1->fetch_assoc()):
+  // if ($id > ""){
+  // $sql1 = "SELECT * FROM `student` WHERE $id;";
+  // $result1 = $conn->query($sql1);
+  // while($row = $result1->fetch_assoc()):
 
-    $fname = $row['fname'];
-    $lname = $row['lname'];
-    $bdate = $row['bdate'];
-    $m = $row['m'];
-    $mail =$row['email'];
+  //   $fname = $row['fname'];
+  //   $lname = $row['lname'];
+  //   $bdate = $row['bdate'];
+  //   $m = $row['m'];
+  //   $mail =$row['email'];
 
   
   
-  endwhile;
+  // endwhile;
 
   //print_r($result1);
   //exit; 
-  }
+  //}
  
   // output data of each row
 
