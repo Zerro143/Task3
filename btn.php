@@ -10,6 +10,8 @@
             <button class="btn-xs btn-primary" id="studentAdd">Add Student Record</button>
             <button class="btn-xs btn-primary" id="openForm">Add Course</button>
             <button class="btn-xs btn-primary" id="delsel">Delete Selected</button>
+            <button class="btn-xs btn-primary" id="delsel">Export Selected</button>
+            <button class="btn-xs btn-primary" id="delsel">Export</button>
             <br>
                 
         </div> 
