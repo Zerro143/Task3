@@ -62,7 +62,7 @@ if(!empty($_FILES["file"]["name"]))
                     $s = "INSERT INTO student (`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$cr[0]','$bdate','$cdate','$udate')";
                     
                     // echo $s."<br>";
-                   //mysqli_query($conn, $s);
+                   mysqli_query($conn, $s);
                     
 
                    //echo 50;
@@ -75,7 +75,7 @@ if(!empty($_FILES["file"]["name"]))
                     echo $u."<br>";
                     
                     
-                      //mysqli_query($conn, $u);
+                      mysqli_query($conn, $u);
                     //echo 51;
                     
     

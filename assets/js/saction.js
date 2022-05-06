@@ -438,6 +438,7 @@ $(document).ready(function(){
                   {  
                        alert("CSV file data has been imported");  
                        $('#upload_csv_form')[0].reset();
+                       location.reload();
                   }  
                   else  
                   {  
