@@ -36,25 +36,37 @@ if(!empty($_FILES["file"]["name"]))
                 // Get row data
                 $fname = $getData[0];
                 $lname = $getData[1];
-                $email = $getData[3];
-                $m = $getData[4];
-                $course = $getData[5];
-                $bdate = $getData[6];
-                $cdate = $getData[7];
-                $udate = $getData[8];
- 
+                $email = $getData[2];
+                $m = $getData[3];
+                $course = $getData[4];
+                $bdate = $getData[5];
+                $cdate = $getData[6];
+                $udate = $getData[7];
+                
                 // If user already exists in the database with the same email
-                $query = "SELECT id FROM student WHERE `email` = '$email'";
- 
+                $query = "SELECT id FROM student WHERE email = '$email'";
+                
                 $check = mysqli_query($conn, $query);
- 
-                if ($check->num_rows > 0)
-                {
-                    mysqli_query($conn, "UPDATE student SET `fname` = '$fname', `lname` = '$lname' , `email` = '$email' , `m` = $m , `course_id` = '$course_id' , `bdate` = '$bdate', `update_date`= '$cdate' WHERE id = $id");
+                $tr = $check->num_rows;
+                echo $tr."<br>";
+                if ($tr > 0)
+                {  $cr =  "SELECT course_id FROM course WHERE course = '$course'";
+                    $cr = mysqli_query($conn, $cr);
+                    $cr = mysqli_fetch_array($cr);
+                   
+                   $u = "UPDATE student SET `fname` = '$fname', `lname` = '$lname' , `email` = '$email' , `m` = $m , `course_id` = '$cr[0]' , `bdate` = '$bdate', `update_date`= '$udate'";
+                   
+                    mysqli_query($conn, $u);
                 }
                 else
-                {
-                     mysqli_query($conn, "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course','$bdate','$cdate','$udate')");
+                {   
+                    $crb =  "SELECT course_id FROM course WHERE course = '$course'";
+                    $cra = mysqli_query($conn, $crb);
+                    $cr = mysqli_fetch_array($cra);
+                 
+                    $s = "INSERT INTO student (`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$cr[0]','$bdate','$cdate','$udate')";
+                    
+                     mysqli_query($conn, $s);
  
                 }
             }
