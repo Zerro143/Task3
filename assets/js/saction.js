@@ -286,7 +286,7 @@ $(document).ready(function(){
         {  
             alert("Please select row.");  
         }else{
-            if(confirm("Are you sure u want to delete")){
+           
                var join_selected_values = allVals.join(","); 
                var btn= "export";
                 $.ajax({   
@@ -300,7 +300,7 @@ $(document).ready(function(){
                         location.reload();
 					}   
 				});
-            }
+            
 
         }
 
