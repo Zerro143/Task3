@@ -83,12 +83,17 @@ $(document).ready(function(){
                 $.ajax({url:"upcr.php", 
                 method:"POST", 
                 data:{a:btn,b:course}, 
-                success:function(dataabc){ 
-                    location.reload();
-                    alert(course + " Added to Database");
-                    $("#myForm").hide();
-                    $("#course").val("");
-                    $("#crerr").html("");
+                success:function(a){ 
+                    if (a==0){
+                        alert(course + " Added to Database");
+                        
+                        location.reload();
+                    }
+                    else{
+                        alert("Course already exist")
+                       
+                    }
+             
                 }});
 
             }

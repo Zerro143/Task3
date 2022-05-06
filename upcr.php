@@ -10,9 +10,20 @@ $a = $_POST['a'];
 if ($a == "add") {
     
     $course = $_POST['b'];
-    $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
-    //echo $sql;
-    mysqli_query($conn, $sql);
+    $r1 = "SELECT * FROM course WHERE course = '$course'";
+    $r2 = mysqli_query($conn,$r1);
+    $tr = $r2->num_rows;
+    if($tr==0){
+        $sql = "INSERT INTO course(course) VALUES ('$course')"or die("ERROR: Data no stored in database.".mysqli_error($conn));
+        //echo $sql;
+        echo $tr;
+        mysqli_query($conn, $sql);
+       
+    }
+    else{
+        echo $tr;
+
+    }
    
   
     
