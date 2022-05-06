@@ -42,31 +42,40 @@ if(!empty($_FILES["file"]["name"]))
                 $bdate = $getData[5];
                 $cdate = $getData[6];
                 $udate = $getData[7];
+
+                $cr =  "SELECT course_id FROM course WHERE course = '$course'";
+                $cr = mysqli_query($conn, $cr);
+                $cr = mysqli_fetch_array($cr);
+                   
                 
                 // If user already exists in the database with the same email
-                $query = "SELECT id FROM student WHERE email = '$email'";
+                $query = "SELECT * FROM student WHERE email = '$email'";
+                echo $query;
                 
                 $check = mysqli_query($conn, $query);
                 $tr = $check->num_rows;
                 echo $tr."<br>";
+                
                 if ($tr > 0)
-                {  $cr =  "SELECT course_id FROM course WHERE course = '$course'";
-                    $cr = mysqli_query($conn, $cr);
-                    $cr = mysqli_fetch_array($cr);
+                {  
                    
+                    
                    $u = "UPDATE student SET `fname` = '$fname', `lname` = '$lname' , `email` = '$email' , `m` = $m , `course_id` = '$cr[0]' , `bdate` = '$bdate', `update_date`= '$udate'";
-                   
+                  echo $u."<br>";
+                  
                     mysqli_query($conn, $u);
+                   //echo 50;
                 }
                 else
                 {   
-                    $crb =  "SELECT course_id FROM course WHERE course = '$course'";
-                    $cra = mysqli_query($conn, $crb);
-                    $cr = mysqli_fetch_array($cra);
-                 
+                
+                    //echo 51;
+                    
                     $s = "INSERT INTO student (`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$cr[0]','$bdate','$cdate','$udate')";
                     
-                     mysqli_query($conn, $s);
+                    // echo $s."<br>";
+                   mysqli_query($conn, $s);
+                 
  
                 }
             }
