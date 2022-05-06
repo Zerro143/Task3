@@ -66,30 +66,28 @@ if ($a == "update1") {
     
 }
 
-if($a == "export"){
-    if(isset($_POST['ids']) AND $a =="export"){
-        $ids=$_POST['ids'];
-        $output = fopen("output.csv", "w");
-        fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
-        foreach ($ids as $id_d)
-        {
+
+if(isset($_POST['ids']) AND $a =="export"){
+    $ids=$_POST['ids'];
+    $output = fopen("output.csv", "w");
+    fputcsv($output, array('id','fname','lname','email','m','course', 'bdate','created_date','update_date'));
+    foreach ($ids as $id_d)
+    {
           
-            echo $id_d;
-            $sql = "SELECT * FROM student JOIN course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
-
-            $result = $conn->query($sql);
-            while ($row = mysqli_fetch_assoc($result)) {
-                fputcsv($output, $row);
-                
-
-            }
+        echo $id_d;
+        $sql = "SELECT * FROM student JOIN course ON student.course_id = course.course_id WHERE id=$id_d ;"; 
+        $result = $conn->query($sql);
+        while ($row = mysqli_fetch_assoc($result)) {
+            fputcsv($output, $row);
             
         }
+        
     }
-
+    fclose($output);
 }
 
 
-fclose($output);
+
+
 mysqli_close($conn);
 ?>

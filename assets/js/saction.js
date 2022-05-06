@@ -289,7 +289,7 @@ $(document).ready(function(){
         }else{
 
                var join_selected_values = allVals.join(","); 
-               var btn= "export";
+               var btn= "exp";
                 $.ajax({   
 				  
 					type: "POST",  
