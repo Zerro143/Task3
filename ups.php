@@ -24,14 +24,16 @@ if ($a == "add1") {
     $sql = "INSERT INTO student(`fname`, `lname`, `email`, `m`, `course_id`, `bdate`, `created_date`,`update_date`) VALUES ('$fname','$lname','$email','$m','$course_id','$bdate','$cdate','$cdate')";
     echo $sql;
     //mysqli_query($conn, $sql);
+    }else{
+        echo "<input type='hidden' id='tr' value ='$tr'>";
+
     }
-    else{
-        echo '<input type="hidden" id="totalRecords" value ="<?php echo $tr; ?>">';
-    }
+
    
   
     
 }
+
 
 if ($a == "del") {
    
