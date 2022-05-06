@@ -84,7 +84,7 @@ $(document).ready(function(){
          }
          if(bdate == ""){
             $("#bderr").html("<b> Please select the valid date");
-            alert("Enter DAte")
+            
             errocode = 1;
 
            
