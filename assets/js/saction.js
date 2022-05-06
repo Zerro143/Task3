@@ -276,6 +276,35 @@ $(document).ready(function(){
         }
 
     });
+    $("#exp").click(function(){
+        var allVals = [];  
+        $(".sil:checked").each(function(){
+            allVals.push($(this).attr("value"));
+        });
+        //alert(allVals.length); 
+        if(allVals.length == 0)  
+        {  
+            alert("Please select row.");  
+        }else{
+            if(confirm("Are you sure u want to delete")){
+               var join_selected_values = allVals.join(","); 
+               var btn= "export";
+                $.ajax({   
+				  
+					type: "POST",  
+					url: "ups.php",  
+					data: {ids:allVals,a:btn},
+					success: function()  
+					{   
+                        //alert ("Selected data deleted");
+                        location.reload();
+					}   
+				});
+            }
+
+        }
+
+    });
 
     $("#master").click(function(){
         if($(this).is(':checked',true)){
