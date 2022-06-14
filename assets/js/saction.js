@@ -283,7 +283,8 @@ $(document).ready(function(){
 					success: function()  
 					{   
                         //alert ("Selected data deleted");
-                        location.reload();
+                        //location.reload();
+                        $("#datatable").load("students.php #datatable")
 					}   
 				});
             }else{
@@ -408,8 +409,9 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:btn,c:id}, 
             success:function(dataabc){ 
-                location.reload();
-                alert("Record Deleted from Database");
+                //location.reload();
+                $("#datatable").load("students.php #datatable")
+                //alert("Record Deleted from Database");
                 
             }});
         }
