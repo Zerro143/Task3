@@ -60,13 +60,13 @@
     <section id= "main">
 
    
-      <div class="container"  id = "datatable">
+      <div class="container"  id ="datatable">
 
         <div class="row justify-content-center">
         <table class="table datatable" id="tda">
               <thead>
                 <tr>
-                  <th><input type="checkbox" name="" id="master"></td>
+                  <th><input type="checkbox" name="" id="master"></th>
                   <th>Student ID</th>
                   <th>First Name</th>
                   <th>Last Name</th>
@@ -79,6 +79,7 @@
                   <th colspan="4">Action</th>
                 </tr>
               </thead>
+              <tbody id="data">
                 <?php $sql = "SELECT * FROM student INNER JOIN course ON student.course_id = course.course_id;"; 
                     $result = $conn->query($sql); 
 
@@ -114,6 +115,7 @@
                     </tr>
                   </div>  
                 <?php endwhile;?>
+              </tbody>
             </table>
 
                           

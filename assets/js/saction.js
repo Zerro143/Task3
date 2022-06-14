@@ -2,6 +2,24 @@
 
 
 $(".studentForm").hide();
+$("#main").on("click","#master",function(){
+    if($("#master").is(':checked',true)){
+        $(".sil").prop('checked',true)
+    }
+    else{
+        $(".sil").prop('checked',false)
+    }
+    
+})
+$("#main").on("click",".sil",function(){
+
+    if($(".sil").length == $(".sil:checked").length) {
+        $("#master").prop("checked", true);
+    } else {
+        $("#master").prop("checked", false);
+    }
+})
+
 $(document).ready(function(){
     
  
@@ -109,6 +127,8 @@ $(document).ready(function(){
 
         
     }
+
+
     $("#studentAdd").click(function(e){
         e.preventDefault();
         $("#upd").hide();
@@ -130,7 +150,7 @@ $(document).ready(function(){
     });
 
 
-    $(".edit1").click(function(e){
+    $("#main").on("click",".edit1",function(e){
         e.preventDefault();
         $(".studentForm").show();
         $(".datatable").hide();
@@ -284,7 +304,7 @@ $(document).ready(function(){
 					{   
                         //alert ("Selected data deleted");
                         //location.reload();
-                        $("#datatable").load("students.php #datatable")                    
+                        $("#datatable").load("students.php #datatable")                  
 					}   
 				});
             }else{
@@ -355,23 +375,7 @@ $(document).ready(function(){
 
     });
 
-    $("#master").click(function(){
-        if($(this).is(':checked',true)){
-            $(".sil").prop('checked',true)
-        }
-        else{
-            $(".sil").prop('checked',false)
-        }
-        
-    })
-    $(".sil").click(function(){
-  
-        if($(".sil").length == $(".sil:checked").length) {
-            $("#master").prop("checked", true);
-        } else {
-            $("#master").prop("checked", false);
-        }
-    })
+    
 
  
    
@@ -396,7 +400,7 @@ $(document).ready(function(){
         
     });
 
-    $(".delete1").click(function(){
+    $("#main").on("click",".delete1",function(){
         
         
         var id = $(this).attr("did");
@@ -410,7 +414,7 @@ $(document).ready(function(){
             data:{a:btn,c:id}, 
             success:function(dataabc){ 
                 //location.reload();
-                $("#datatable").load("students.php #datatable")
+                $("#main").load("students.php #datatable")     
                 //alert("Record Deleted from Database");
                 
             }});
