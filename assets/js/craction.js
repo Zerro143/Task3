@@ -121,7 +121,7 @@ $(document).ready(function(){
             method:"POST", 
             data:{a:btn,c:cid}, 
             success:function(dataabc){ 
-                $("#datatable").load("course.php #datatable")
+                $("#datatable").load("course .php #datatable")
                 alert(course + " Deleted from Database");
                 
             }});

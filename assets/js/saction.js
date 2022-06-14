@@ -284,7 +284,7 @@ $(document).ready(function(){
 					{   
                         //alert ("Selected data deleted");
                         //location.reload();
-                        $("#datatable").load("students.php #datatable")
+                        $("#datatable").load("students.php #datatable")                    
 					}   
 				});
             }else{
