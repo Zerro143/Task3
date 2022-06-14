@@ -128,9 +128,10 @@
     <section id = "student_form" class="studentForm container mt-5">
           <?php include 'record.php';?>
     </section>
-   
+  <div id="js">
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/craction.js"></script>
     <script src="assets/js/saction.js"></script>
+  </div>
   </body>
 </html>
