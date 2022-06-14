@@ -12,12 +12,13 @@ include 'conn.php';?>
         <section id="header">
           <?php   include 'nav.php';?>
         </section>
-        <?php include 'btn.php';?>         
-        <div class="container">            
+        <?php include 'btn.php';?>
+        <section id="main">         
+        <div class="container" id="datatable">            
                    
            
             <div class="row justify-content-center">
-            <table class="table datatable" id = "datatable">
+            <table class="table datatable" id = "tdaa">
                 <thead>
                   <tr>
                     <th><input type="checkbox" name="" id="master"></td>
